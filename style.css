@@ -1,0 +1,108 @@
+/* DEBUG GRIDCSS */
+
+
+[class*="col-"], footer{
+    border: 2px solid black;
+    border-radius: 6px;
+}
+.row{
+border: 2px solid red;
+}
+
+/* FIN DEBUG */
+
+@font-face {
+    font-family: 'belligerent';
+    src: url('./font/belligerent.ttf');
+}
+
+/* Empêche le dépassement des flottants. */
+.container-fluid {
+	overflow: hidden;
+}
+
+.name{
+    font-family: belligerent;
+    color: #261624;
+}
+
+.namechoice_product{
+    text-align: center;
+}
+
+.image{
+    width: 60%;
+}
+
+.image_product{
+    width: 100%;
+}
+
+.image, .image_product{
+    display: flex;
+    justify-content: center;
+    border-radius: 20px;
+    margin: auto;
+    overflow: hidden;
+    -webkit-border-radius: 20%;
+    -moz-border-radius: 20%;
+    -ms-border-radius: 20%;
+    -o-border-radius: 20%;
+
+}
+
+#selectColor{
+    width: 150px;
+}
+#inputQuantity{
+    width: 150px;
+}
+
+button{
+    color: blue;
+    background-color: yellow;
+    border-radius: 10%;
+    -webkit-border-radius: 10%;
+    -moz-border-radius: 10%;
+    -ms-border-radius: 10%;
+    -o-border-radius: 10%;
+}
+
+
+body{
+    background-color: bisque;
+}
+
+
+[class*="col-lg"],main{
+    margin: 0% 1% 0% 1%;
+}
+
+footer{
+    font-size: 1.3em;
+    text-align: center;
+    font-weight: bold;
+    position: fixed;
+    bottom: 0;left: 0;right: 0;
+}
+
+
+/* header img{
+    padding-right: 45%;
+    padding-left: 45%;
+} */
+
+h1{
+    font-size: 5em;
+    font-family: belligerent;
+    color: #261624;
+}
+
+a{
+    text-align: center;
+    text-decoration: none;
+}
+
+main{
+    margin-bottom: 10%;
+}
