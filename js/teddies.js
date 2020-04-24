@@ -19,6 +19,7 @@ requestTeddies.onload = function () {
         teddieDiv.classList.add("col-xs-5");
         teddieDiv.style.border = "1px solid black";
         teddieDiv.style.borderRadius = "20px";
+        teddieDiv.style.marginBottom = "2%";
         teddieDiv.id = "teddies"+i;
 
         // insertion de la DIV dans la page HTML

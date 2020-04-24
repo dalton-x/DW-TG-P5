@@ -1,16 +1,16 @@
 /* DEBUG GRIDCSS */
 
-
-[class*="col-"], footer{
+/* [class*="col-"], footer{
     border: 2px solid black;
     border-radius: 6px;
 }
 .row{
 border: 2px solid red;
-}
+} */
 
 /* FIN DEBUG */
 
+/* Ajout de polices d'ecritures */
 @font-face {
     font-family: 'belligerent';
     src: url('./font/belligerent.ttf');
@@ -18,18 +18,10 @@ border: 2px solid red;
 
 /* Empêche le dépassement des flottants. */
 .container-fluid {
-	overflow: hidden;
+    overflow: hidden;
 }
 
-.name{
-    font-family: belligerent;
-    color: #261624;
-}
-
-.namechoice_product{
-    text-align: center;
-}
-
+/* Gestion des images sur la page inde et produit */
 .image{
     width: 60%;
 }
@@ -51,6 +43,7 @@ border: 2px solid red;
 
 }
 
+/* Réglage de la taille des inputs */
 #selectColor{
     width: 150px;
 }
@@ -58,6 +51,7 @@ border: 2px solid red;
     width: 150px;
 }
 
+/* button du panier */
 button{
     color: blue;
     background-color: yellow;
@@ -68,16 +62,17 @@ button{
     -o-border-radius: 10%;
 }
 
-
+/* Ajout d'un fond sur les pages web */
 body{
     background-color: bisque;
 }
 
-
+/*  */
 [class*="col-lg"],main{
     margin: 0% 1% 0% 1%;
 }
 
+/*  */
 footer{
     font-size: 1.3em;
     text-align: center;
@@ -85,12 +80,6 @@ footer{
     position: fixed;
     bottom: 0;left: 0;right: 0;
 }
-
-
-/* header img{
-    padding-right: 45%;
-    padding-left: 45%;
-} */
 
 h1{
     font-size: 5em;
@@ -101,6 +90,21 @@ h1{
 a{
     text-align: center;
     text-decoration: none;
+}
+
+/* Boutton validé de la page produit */
+.validation{
+    text-decoration: none;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+.validation:hover{
+    text-decoration: none;
+    border: 2px red solid;
+    cursor: default;
 }
 
 main{
