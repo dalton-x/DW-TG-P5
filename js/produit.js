@@ -95,7 +95,7 @@ requestProduct.onload = function () {
         const input = document.createElement("input");
         input.type = "number";
         input.id = "quantity";
-        input.value = indexQuantity;        
+        input.value = 1;        
         input.addEventListener("change",onChangeInput, true)  
         input.setAttribute("min",1);
         input.setAttribute("max",200);
@@ -128,12 +128,10 @@ requestProduct.onload = function () {
         validButton.onclick = function() {
             if (indexColor == null){
                 alert("Vous avez pas choisit votre couleur");
-            }else{
-                // if (confirm("Vous allez commander "+indexQuantity+" "+name+" avec la couleur "+indexColor+" .")){
-                    var cookies = [indexQuantity,indexColor];
-                    setCookie(IDproduct+indexColor,cookies);  
-                    window.location = "./panier.html?color="+indexColor;
-                // }
+            }else{                
+                var cookies = [indexQuantity,indexColor];                   
+                setCookie(IDproduct+'||'+indexColor,cookies);  
+                window.location = "./panier.html?color="+indexColor;                    
             }
         }
 
