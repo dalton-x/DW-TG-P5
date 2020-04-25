@@ -15,6 +15,8 @@ function setCookie(nom, valeur, expire, chemin, domaine, securite){
                     ((securite == true) ? '; secure' : '');
 }
 
+
+
 // charge les données de notre JSON récupéré
 requestProduct.onload = function () {
 
@@ -61,9 +63,10 @@ requestProduct.onload = function () {
         colorsProduct.appendChild(br1);
 
         // Création du select pour le choix de la couleur
+        let indexColor
         const select  = document.createElement("select");
         select.id = "colors";
-        select.addEventListener("change",onChangeSelect, true)        
+        select.addEventListener("change",onChangeInput, true);
         select[select.options.length] = new Option("Couleur", "0");
         
         let colors = teddiesChoice.colors;
@@ -73,13 +76,7 @@ requestProduct.onload = function () {
                     select[select.options.length] = new Option(element, element);
                 }
             }
-        });
-
-        let indexColor
-        function onChangeSelect(){
-            let val = document.getElementById("colors").value;
-            indexColor = val;
-        };      
+        });    
 
         // Affichage de la liste des couleurs
         colorsProduct.appendChild(select);
@@ -99,13 +96,14 @@ requestProduct.onload = function () {
         input.type = "number";
         input.id = "quantity";
         input.value = indexQuantity;        
-        select.addEventListener("change",onChangeInput, true)  
+        input.addEventListener("change",onChangeInput, true)  
         input.setAttribute("min",1);
         input.setAttribute("max",200);
-
+        
+        
         function onChangeInput(){
-            let val = document.getElementById("quantity").value;
-            indexQuantity = val;
+            indexQuantity = document.getElementById("quantity").value;
+            indexColor = document.getElementById("colors").value;
         }; 
                                 
         // Affichage de l'input de la quantitée
@@ -131,18 +129,13 @@ requestProduct.onload = function () {
             if (indexColor == null){
                 alert("Vous avez pas choisit votre couleur");
             }else{
-                if (confirm("Vous allez commander "+indexQuantity+" "+name+" avec la couleur "+indexColor+" .")){
-                    var cookies = [IDproduct,indexColor,indexQuantity]
-                    setCookie('cookies',cookies);  
-                    window.location = "./panier.htmlIDProduct="+IDProduct 
-                }
-
-            
+                // if (confirm("Vous allez commander "+indexQuantity+" "+name+" avec la couleur "+indexColor+" .")){
+                    var cookies = [indexQuantity,indexColor];
+                    setCookie(IDproduct+indexColor,cookies);  
+                    window.location = "./panier.html?color="+indexColor;
+                // }
             }
-        
         }
-
-        
 
     // Mise en place du select du choix des couleurs de l'article
     let imageProduct = document.getElementById("image");
