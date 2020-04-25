@@ -43,6 +43,14 @@ border: 2px solid red;
 
 }
 
+.product_panier{
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
 /* Réglage de la taille des inputs */
 #selectColor{
     width: 150px;
