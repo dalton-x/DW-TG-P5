@@ -33,7 +33,7 @@
     </header>
 
     <main>
-        <div class="container-fluid">
+        <div id="inner" class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
                     <h2>Récapitulatif de votre commande</h2>
@@ -90,7 +90,14 @@
                 <div class="col-md-4">
                     <div class="row">
                         <div id="panier_form" class="col-md-12">
-                            formulaire
+                            <form id="myForm" method="post" action="" >
+                                <br>Pr&eacute;nom<br><input name="text1" id="text1" type="text" >
+                                <br>Nom<br><input name="text2" id="text2" type="text" >
+                                <br>Adresse<br><input name="text3" id="text3" type="text" >
+                                <br>Ville<br><input name="text4" id="text4" type="text" >
+                                <br>Email<br><input name="email5" id="email5" type="email" >
+                                <br><input name="submit6" type="submit" value="Valider" >
+                            </form>
                         </div>
                     </div>
                 </div>
