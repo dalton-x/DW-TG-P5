@@ -12,10 +12,16 @@ const eraseHtml = container => {
     while (el.firstChild) el.removeChild(el.firstChild);
 };
 
+//Funcion pour random un chiffre
 function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
-  }
+}
 
+//efface tout les cookies donc efface le panier 
+function deleteAllCookies(cookiename) {
+    document.cookie = cookiename+"= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+    //location.reload();
+}
 // ouvre une nouvelle connexion en utilisant la méthode GET
 requestPanier.open('GET', urlDB);
 
@@ -67,6 +73,7 @@ requestPanier.onload = function () {
             let IDColor = fisrtSplit[0].split('||');
             //console.log("IDColor",IDColor);
             var IDCookies = IDColor[0];
+            console.log(IDCookies)
             var colorCookies = IDColor[1];
             let IDColor2 = fisrtSplit[1].split('||');
             //console.log("IDColor2",IDColor2);
@@ -145,7 +152,15 @@ requestPanier.onload = function () {
 
         // Affichage du prix
         subTotalProduct.appendChild(psubtotal);
-    
+
+    // Mise en place dbouton pour vider le panier
+    let panierClear = document.getElementById("panier_clear");  
+        const buttonClear = document.createElement("button");
+        buttonClear.textContent = "Vider le panier";
+        buttonClear.addEventListener("click",deleteAllCookies(IDCookies+'||'+color), true)  
+
+        // Affichage du boutton pour vider le panier
+        panierClear.appendChild(buttonClear);
     }
 }
 

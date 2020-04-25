@@ -9,13 +9,11 @@ requestProduct.open('GET', urlDB + IDproduct);
 
 function setCookie(nom, valeur, expire, chemin, domaine, securite){
     document.cookie = nom + ' = ' + escape(valeur) + '  ' +
-                    ((expire == undefined) ? '' : ('; expires = ' + expire.toGMTString())) +
+                    ((expire == undefined) ? '' : ('; expires = ' + expire)) +
                     ((chemin == undefined) ? '' : ('; path = ' + chemin)) +
                     ((domaine == undefined) ? '' : ('; domain = ' + domaine)) +
                     ((securite == true) ? '; secure' : '');
 }
-
-
 
 // charge les données de notre JSON récupéré
 requestProduct.onload = function () {
@@ -124,13 +122,17 @@ requestProduct.onload = function () {
         // Affichage du boutton validé
         colorsProduct.appendChild(Validation);
 
+        // generation d'une date avec 1 semaine d'avance pour l'expiration des cookies
+        let numDate = new Date(Date.parse(new Date())+(604800*1000))
+        
+        // Création du bouton validée avec ajout des cookies
         let validButton = document.getElementById("button_Validate")
         validButton.onclick = function() {
             if (indexColor == null){
                 alert("Vous avez pas choisit votre couleur");
             }else{                
                 var cookies = [indexQuantity,indexColor];                   
-                setCookie(IDproduct+'||'+indexColor,cookies);  
+                setCookie(IDproduct+'||'+indexColor,cookies,numDate);  
                 window.location = "./panier.html?color="+indexColor;                    
             }
         }
