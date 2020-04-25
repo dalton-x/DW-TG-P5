@@ -17,11 +17,7 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
 
-//efface tout les cookies donc efface le panier 
-function deleteAllCookies(cookiename) {
-    document.cookie = cookiename+"= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
-    //location.reload();
-}
+
 // ouvre une nouvelle connexion en utilisant la méthode GET
 requestPanier.open('GET', urlDB);
 
@@ -73,7 +69,7 @@ requestPanier.onload = function () {
             let IDColor = fisrtSplit[0].split('||');
             //console.log("IDColor",IDColor);
             var IDCookies = IDColor[0];
-            console.log(IDCookies)
+            //console.log(IDCookies)
             var colorCookies = IDColor[1];
             let IDColor2 = fisrtSplit[1].split('||');
             //console.log("IDColor2",IDColor2);
@@ -155,10 +151,17 @@ requestPanier.onload = function () {
 
     // Mise en place dbouton pour vider le panier
     let panierClear = document.getElementById("panier_clear");  
-        const buttonClear = document.createElement("button");
+        const buttonClear = document.createElement("a");
         buttonClear.textContent = "Vider le panier";
-        buttonClear.addEventListener("click",deleteAllCookies(IDCookies+'||'+color), true)  
-
+        //buttonClear.addEventListener("click",deleteAllCookies(IDCookies+'||'+color))  
+        
+        buttonClear.onclick = 
+        //efface tout les cookies donc efface le panier 
+        function () {
+            console.log(IDCookies+'||'+color)
+            document.cookie = IDCookies+'||'+color+"= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+        }
+        buttonClear.href = "../panier.html"
         // Affichage du boutton pour vider le panier
         panierClear.appendChild(buttonClear);
     }
