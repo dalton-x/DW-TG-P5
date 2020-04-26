@@ -1,12 +1,12 @@
 /* DEBUG GRIDCSS */
 
-[class*="col-"], footer{
+/* [class*="col-"], footer{
     border: 2px solid black;
     border-radius: 6px;
 }
 .row{
 border: 2px solid red;
-}
+} */
 
 /* FIN DEBUG */
 
@@ -57,6 +57,9 @@ border: 2px solid red;
 }
 #inputQuantity{
     width: 150px;
+}
+#article_panier{
+    height: 425px;
 }
 
 /* button du panier */

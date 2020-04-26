@@ -12,9 +12,28 @@ function getRandomInt(max) {
     return Math.floor(Math.random() * Math.floor(max));
 }
 
+// ajout d'un "s" a unitée si quantity > 1
+function getQuantity(num){
+    if (num == 1){
+        return quantityUnite = "unitée"
+    }else{
+        return quantityUnite = "unitées"
+    }
+}
+
 // Récupération de tout les cookies de la page
 var getAllCookies = document.cookie;
-//console.log("ALLCOOKIESBRUT",getAllCookies)
+
+//Déclaration des variable
+let nameCookies
+let subTotalValue
+let ID
+let color
+let quantity
+let image
+let nameProduct
+let price
+let description
 
 // Si panier vide on efface la page html et on remplace par le inner
 if (getAllCookies == ""){
@@ -31,39 +50,26 @@ if (getAllCookies == ""){
     let getAllCookiesOK = getAllCookiesSpaceVirgule.split("%3A").join(":")
     getAllCookiesOK = getAllCookiesOK.split(';');
     for (let i = 0; i < getAllCookiesOK.length; i++) {
-        let firstSplit = getAllCookiesOK[i].split('='); //console.log("fisrtSplit",firstSplit);
-        let IDcolor = firstSplit[0]; //console.log("IDcolor",IDcolor);
-            let ID_Color = firstSplit[0].split('||'); //console.log("ID_Color",ID_Color);
-                let ID = ID_Color[0]; //console.log("ID",ID);
-                let color = ID_Color[1]; //console.log("color",color);        
-        let value = firstSplit[1].split(','); //console.log(value[5])
+        let firstSplit = getAllCookiesOK[i].split('=');
+        nameCookies = firstSplit[0];
+        let ID_Color = nameCookies.split('||');
+            ID = ID_Color[0];
+            color = ID_Color[1];  
+        let value = firstSplit[1].split(',');
             // value definit en variable
-        let quantity = value[0]; //console.log("quantity",quantity)
-        let image = value[1]; //console.log("image",image)
-        let name = value[2]; //console.log("name",name)
-        let price = value[3]; //console.log("price",price)
+        quantity = value[0];
+        image = value[1];
+        nameProduct = value[2];
+        price = value[3];
             //creation array description
             let descArray = [];
-            let description
             for (let i = 4; i < value.length; i++) {
             descArray.push(value[i])
-                //console.log("description",descArray)
             description = descArray.toString()
-                //console.log("descstring",description)
             }
     
     // Gestion du background color des produits
-    //let numberColorBackground = getRandomInt(colorBackground.length);
-
-    // // On crée une row par article
-    // let allItems = document.getElementById("article")
-    //     const all_items = document.createElement("div");
-    //     all_items.id = "all_items";
-    //     all_items.classList.add("col-md-8");
-    //     all_items.classList.add("overflow-auto");
-
-    //     // On Insere la row dans la page HTML
-    //     allItems.appendChild(all_items);
+    let numberColorBackground = getRandomInt(colorBackground.length);
 
     // On crée une row par article
     let articlePanier = document.getElementById("article_panier")
@@ -71,6 +77,9 @@ if (getAllCookies == ""){
         product_panier.id = "product_panier"+i;
         product_panier.classList.add("row");
         product_panier.classList.add("product_panier");
+        product_panier.classList.add("mb-3");
+        product_panier.style.backgroundColor = "white" //colorBackground[numberColorBackground]
+        product_panier.style.border = '5px red solid'
 
         // On Insere la row dans la page HTML
         articlePanier.appendChild(product_panier);
@@ -122,7 +131,7 @@ if (getAllCookies == ""){
             //Mise en place du titre en H2
             let nameTitle = document.getElementById("name_product"+i);
                 const name_title = document.createElement("h3");
-                name_title.textContent = name;
+                name_title.textContent = nameProduct;
 
                 // Affichage du titre
                 nameTitle.appendChild(name_title);
@@ -167,109 +176,133 @@ if (getAllCookies == ""){
 
                     // Affichage du de la description
                     displayDesc.appendChild(display_desc);
-
-
             
-        
 
-    // let product_panier = document.getElementById("product_panier");
-    // product_panier.style.backgroundColor = colorBackground[numberColorBackground]
+            // Ajout de la ligne pour la quantitée et la couleur
+            let colorQuantity = document.getElementById('product_info'+i)
+            const color_quantity = document.createElement("div")
+            color_quantity.id = "color_quantity"+i;
+            color_quantity.classList.add("row");
 
-    // // Récuperation du lieu pour installation des elements
-    // let imageProduct = document.getElementById("panier_image");
-        
-    
-    
-    
-    // // ajout pour la balise image
-    // const imgProduct = document.createElement("img");
-    //     imgProduct.src = image;
-    //     imgProduct.alt = description;
-    //     imgProduct.classList.add("grd-");
-    //     imgProduct.classList.add("image_product");
-        
-    //     // Affichage de l'image
-    //     imageProduct.appendChild(imgProduct);
+            // envoie de la row
+            colorQuantity.appendChild(color_quantity);
 
-    // //Mise en place du titre en H2
-    // let titleProduct = document.getElementById("panier_name");
-    //     const h2 = document.createElement("h3");
-    //     h2.textContent = name;
+                // Création de la colonne pour affichage de la couleur
+                const color_product = document.createElement("div");
+                color_product.id = "color_product"+i;
+                color_product.classList.add("col-md-6");
+                    
+                // envoie de la colonne
+                color_quantity.appendChild(color_product);
+                
+                //Création de la balise <p> pour insere la couleur
+                let displaycolor = document.getElementById("color_product"+i);
+                    const display_color = document.createElement("p");
+                    //desc_product.style.overflow = "hidden";
+                    display_color.textContent = "Couleur : "+color;
 
-    //     // Affichage du titre
-    //     titleProduct.appendChild(h2);
+                    // Affichage du de la couleur
+                    displaycolor.appendChild(display_color);
 
-    // // Mise en place de la description de l article
-    // let descProduct = document.getElementById("panier_description");
-    //     const pDesc = document.createElement("p");
-    //     pDesc.textContent = description;
+                // Création de la colonne pour affichage de la couleur
+                const quantity_product = document.createElement("div");
+                quantity_product.id = "quantity_product"+i;
+                quantity_product.classList.add("col-md-6");
+                    
+                // envoie de la colonne
+                color_quantity.appendChild(quantity_product);
+                
+                //Création de la balise <p> pour insere la couleur
+                let displayquantity = document.getElementById("quantity_product"+i);
+                    const display_quantity = document.createElement("p");
+                    //desc_product.style.overflow = "hidden";
+                    display_quantity.textContent = "Quantitée : "+quantity+ " "+getQuantity(quantity);
 
-    //     // Affichage de la description
-    //     descProduct.appendChild(pDesc);
+                    // Affichage du de la couleur
+                    displayquantity.appendChild(display_quantity);
 
-    // // Mise en place du prix de l'article à l'unitée
-    // let priceProduct = document.getElementById("panier_price");
-    //     const pPrice = document.createElement("p");
-    //     pPrice.textContent = +price+" €";
+            // Ajout de la ligne pour le sous total 
+            let subTotalDel = document.getElementById('product_info'+i)
+            const subTotal_del = document.createElement("div")
+            subTotal_del.id = "subTotal_del"+i;
+            subTotal_del.classList.add("row");
 
-    //     // Affichage du prix
-    //     priceProduct.appendChild(pPrice);
+            // envoie de la row
+            subTotalDel.appendChild(subTotal_del);
 
-    // // Mise en place du prix de l'article à l'unitée
-    // let quantityProduct = document.getElementById("panier_quantity");
-    //     const pQuantity = document.createElement("p");
-    //     pQuantity.textContent = quantity;
+                // Création de la colonne pour affichage du sous total
+                const subTotal_product = document.createElement("div");
+                subTotal_product.id = "subTotal_product"+i;
+                subTotal_product.classList.add("col-md-6");
+                    
+                // envoie de la colonne
+                subTotal_del.appendChild(subTotal_product);
 
-    //     // Affichage du prix
-    //     quantityProduct.appendChild(pQuantity);
+                //Création de la balise <p> pour insere le sous total
+                let displaySubTotal = document.getElementById("subTotal_product"+i);
+                    const display_SubTotal = document.createElement("p");
+                    //desc_product.style.overflow = "hidden";
+                    subTotalValue = quantity*price;
+                    display_SubTotal.textContent = "Sous-Total : "+ subTotalValue +" €";
 
-    // // Mise en place du prix de l'article à l'unitée
-    // let colorProduct = document.getElementById("panier_color");
-    //     const pColor = document.createElement("p");
-    //     let colorSpace = color.replace("%20", " ")
-    //     pColor.textContent = colorSpace;
+                    // Affichage du de le sous total
+                    displaySubTotal.appendChild(display_SubTotal);
 
-    //     // Affichage du prix
-    //     colorProduct.appendChild(pColor);
+                // Création de la colonne pour affichage de la description
+                const del_product = document.createElement("div");
+                del_product.id = "del_product"+i;
+                del_product.classList.add("col-md-6");
+                    
+                // envoie de la colonne
+                subTotal_del.appendChild(del_product);
 
-    // // Mise en place du prix de l'article à l'unitée
-    // let subTotalProduct = document.getElementById("panier_subttotal");
-    //     const psubtotal = document.createElement("p");
-    //     //console.log(typeof(price))
-    //     psubtotal.textContent = price*quantity+" €";
-    //     var subTotal = price*quantity
+                    const display_del = document.createElement("button");
+                    display_del.textContent = "supprimé article"
+                    display_del.onclick = function () {
+                        document.cookie = nameCookies + "= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+                        location.reload(true);
+                    }
 
-    //     // Affichage du prix
-    //     subTotalProduct.appendChild(psubtotal);
+
+                    // Affichage du de la couleur
+                    del_product.appendChild(display_del);
+
     }
+    // fin de mon "for" pour l'affichage dynamique de mes articles
+    
+    // Affichage du prix total de la commande
+    let panierTotal = document.getElementById("panier_total");
+    panierTotal.classList.add("text-center");
+    panierTotal.classList.add("col-md-12");
+    var totalCommand =+ subTotalValue;
+    panierTotal.textContent = totalCommand+ " €";
+
     // Mise en place dbouton pour vider le panier
     let panierClear = document.getElementById("panier_clear");       
-    panierClear.style.backgroundColor = "blue";
+    //panierClear.style.backgroundColor = "blue";
     panierClear.style.top = "15%";
     panierClear.classList.add("validation");
     panierClear.classList.add("col-md-12");
     panierClear.classList.add("text-center");
     panierClear.classList.add("pull-down");
-        const buttonClear = document.createElement("a"); 
+        const buttonClear = document.createElement("button"); 
         buttonClear.title = "Vider le panier";
         buttonClear.textContent = "Vider le panier";
         buttonClear.style.textDecoration ="none";
+        buttonClear.style.borderRadius = "20px"
         buttonClear.style.color = "yellow";
-        
+        buttonClear.style.backgroundColor = "blue";
         buttonClear.onclick = 
         //efface tout les cookies donc efface le panier 
         function () {
-            console.log(IDCookies+'||'+color)
-            document.cookie = IDCookies+'||'+color+"= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+            for (let i = 0; i < getAllCookiesOK.length; i++) {
+                let firstSplit = getAllCookiesOK[i].split('=');
+                document.cookie = firstSplit[0] +"= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+                location.reload(true);
+            }
         }
-        buttonClear.href = "../panier.html"
+        
         // Affichage du boutton pour vider le panier
         panierClear.appendChild(buttonClear);
-
-    
-    // let panierTotal = document.getElementById("panier_total");
-    // panierTotal.classList.add("text-center");
-    // panierTotal.classList.add("col-md-12");
-    // panierTotal.textContent += subTotal+ " €";
     
 }
