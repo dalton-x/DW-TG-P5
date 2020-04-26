@@ -126,7 +126,7 @@ requestProduct.onload = function () {
         
         // Création du bouton validée avec ajout des cookies
         let validButton = document.getElementById("button_Validate")
-        validButton.dataset.toggle = "modal"
+        validButton.dataset.toggle = "modal";
         validButton.onclick = 
         function() {
             if (indexColor == null || indexColor == 0){

@@ -29,9 +29,6 @@ if (window.location.pathname == '/panier.html' ){
                 descArray.push(value[i])
                 description = descArray.toString()
                 }
-        
-        // Gestion du background color des produits
-        //let numberColorBackground = getRandomInt(colorBackground.length);
 
         // On crée une row par article
         let articlePanier = document.getElementById("article_panier")
@@ -40,7 +37,7 @@ if (window.location.pathname == '/panier.html' ){
             product_panier.classList.add("row");
             product_panier.classList.add("product_panier");
             product_panier.classList.add("mb-3");
-            product_panier.style.backgroundColor = "white" //colorBackground[numberColorBackground]
+            product_panier.style.backgroundColor = "white"
             product_panier.style.border = '5px red solid'
 
             // On Insere la row dans la page HTML
@@ -203,9 +200,7 @@ if (window.location.pathname == '/panier.html' ){
 
                     //Création de la balise <p> pour insere le sous total
                     let displaySubTotal = document.getElementById("subTotal_product"+i);
-                        const display_SubTotal = document.createElement("p");
-                        //desc_product.style.overflow = "hidden";
-                        
+                        const display_SubTotal = document.createElement("p");                        
                         subTotalValue = value[0]*value[3];
                         totalArrayCommand.push(subTotalValue)
                         numberOfItemsInPanier = totalArrayCommand.length;

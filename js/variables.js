@@ -10,14 +10,14 @@ let price
 let description
 let totalArrayCommand =[]
 let numberOfItemsInPanier
-
 let ID_Color
 
 //Choix de la langue du site
-let lang = language.fr
+let lang = language
 
 // generation d'une date avec 1 semaine d'avance pour l'expiration des cookies
 let numDate = new Date(Date.parse(new Date())+(604800*1000))
+console.log(numDate)
 
 // Récupération de tout les cookies de la page
 var getAllCookies = document.cookie;
