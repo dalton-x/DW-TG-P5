@@ -34,6 +34,7 @@ let image
 let nameProduct
 let price
 let description
+let totalArrayCommand =[]
 
 // Si panier vide on efface la page html et on remplace par le inner
 if (getAllCookies == ""){
@@ -69,7 +70,7 @@ if (getAllCookies == ""){
             }
     
     // Gestion du background color des produits
-    let numberColorBackground = getRandomInt(colorBackground.length);
+    //let numberColorBackground = getRandomInt(colorBackground.length);
 
     // On crée une row par article
     let articlePanier = document.getElementById("article_panier")
@@ -132,6 +133,7 @@ if (getAllCookies == ""){
             let nameTitle = document.getElementById("name_product"+i);
                 const name_title = document.createElement("h3");
                 name_title.textContent = nameProduct;
+                name_title.id = ID;
 
                 // Affichage du titre
                 nameTitle.appendChild(name_title);
@@ -242,7 +244,10 @@ if (getAllCookies == ""){
                 let displaySubTotal = document.getElementById("subTotal_product"+i);
                     const display_SubTotal = document.createElement("p");
                     //desc_product.style.overflow = "hidden";
-                    subTotalValue = quantity*price;
+                    
+                    subTotalValue = value[0]*value[3];
+                    totalArrayCommand.push(subTotalValue)
+                    //console.log(totalArrayCommand)
                     display_SubTotal.textContent = "Sous-Total : "+ subTotalValue +" €";
 
                     // Affichage du de le sous total
@@ -258,24 +263,24 @@ if (getAllCookies == ""){
 
                     const display_del = document.createElement("button");
                     display_del.textContent = "supprimé article"
+                    display_del.value = nameCookies;
                     display_del.onclick = function () {
-                        document.cookie = nameCookies + "= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+                        document.cookie = display_del.value + "= ; expires = Thu, 01 Jan 1970 00:00:00 GMT";
                         location.reload(true);
                     }
-
-
                     // Affichage du de la couleur
                     del_product.appendChild(display_del);
-
     }
     // fin de mon "for" pour l'affichage dynamique de mes articles
     
     // Affichage du prix total de la commande
+    
     let panierTotal = document.getElementById("panier_total");
     panierTotal.classList.add("text-center");
     panierTotal.classList.add("col-md-12");
-    var totalCommand =+ subTotalValue;
-    panierTotal.textContent = totalCommand+ " €";
+    const reducer = (accumulator, currentValue) => accumulator + currentValue;  
+    let totalCommand = totalArrayCommand.reduce(reducer)
+    panierTotal.textContent = "totale de votre commande "+totalCommand+ " €";
 
     // Mise en place dbouton pour vider le panier
     let panierClear = document.getElementById("panier_clear");       

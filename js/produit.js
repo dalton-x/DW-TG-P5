@@ -7,6 +7,7 @@ let IDproduct = $_GET('IDProduct');
 // ouvre une nouvelle connexion en utilisant la méthode GET
 requestProduct.open('GET', urlDB + IDproduct);
 
+// Mise en place des fonctions de la page
 function setCookie(nom, valeur, expire, chemin, domaine, securite){
     document.cookie = nom + ' = ' + escape(valeur) + '  ' +
                     ((expire == undefined) ? '' : ('; expires = ' + expire)) +
@@ -14,8 +15,6 @@ function setCookie(nom, valeur, expire, chemin, domaine, securite){
                     ((domaine == undefined) ? '' : ('; domain = ' + domaine)) +
                     ((securite == true) ? '; secure' : '');
 }
-
-
 
 // charge les données de notre JSON récupéré
 requestProduct.onload = function () {
@@ -130,13 +129,15 @@ requestProduct.onload = function () {
         
         // Création du bouton validée avec ajout des cookies
         let validButton = document.getElementById("button_Validate")
-        validButton.onclick = function() {
+        validButton.dataset.toggle = "modal"
+        validButton.onclick = 
+        function() {
             if (indexColor == null){
                 alert("Vous avez pas choisit votre couleur");
             }else{                
                 var cookies = [indexQuantity,image,name,price,description];                   
                 setCookie(IDproduct+'||'+indexColor,cookies,numDate);  
-                window.location = "./panier.html?color="+indexColor;                    
+                window.location = "./panier.html";                    
             }
         }
 
