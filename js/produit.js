@@ -7,15 +7,6 @@ let IDproduct = $_GET('IDProduct');
 // ouvre une nouvelle connexion en utilisant la méthode GET
 requestProduct.open('GET', urlDB + IDproduct);
 
-// Mise en place des fonctions de la page
-function setCookie(nom, valeur, expire, chemin, domaine, securite){
-    document.cookie = nom + ' = ' + escape(valeur) + '  ' +
-                    ((expire == undefined) ? '' : ('; expires = ' + expire)) +
-                    ((chemin == undefined) ? '' : ('; path = ' + chemin)) +
-                    ((domaine == undefined) ? '' : ('; domain = ' + domaine)) +
-                    ((securite == true) ? '; secure' : '');
-}
-
 // charge les données de notre JSON récupéré
 requestProduct.onload = function () {
 
@@ -36,6 +27,14 @@ requestProduct.onload = function () {
         titleProduct.appendChild(h2);
 
     // Mise en place de la description de l article
+    let titleDescProduct = document.getElementById("description");
+        const ptitle = document.createElement("p");
+        ptitle.textContent = lang.produit.titleDescription;
+
+        // Affichage de la description
+        titleDescProduct.appendChild(ptitle);
+        
+    // Mise en place de la description de l article
     let descProduct = document.getElementById("description");
         const p = document.createElement("p");
         p.textContent = description;
@@ -55,7 +54,7 @@ requestProduct.onload = function () {
         // Création du label pour le choix de la couleur
         const labelSelect = document.createElement("label")
         labelSelect.setAttribute("for","colors");
-        labelSelect.textContent = "Choix de la couleur :";
+        labelSelect.textContent = lang.produit.choiceColor;
         
         // Affichage de la liste des couleurs
         colorsProduct.appendChild(labelSelect);
@@ -85,7 +84,7 @@ requestProduct.onload = function () {
         // Création du label pour la quantitée
         const labelInput = document.createElement("label")
         labelInput.setAttribute("for","quantity");
-        labelInput.textContent = "Quantitée :";
+        labelInput.textContent = lang.produit.quantity;
         
         // Affichage du label de la quantitée
         colorsProduct.appendChild(labelInput);
@@ -111,10 +110,9 @@ requestProduct.onload = function () {
         colorsProduct.appendChild(br4);
 
         // creation du lien pour le bouton
-        const Validation = document.createElement("a")
+        const Validation = document.createElement("button")
         Validation.id = "button_Validate"
-        Validation.title = "Validée";
-        Validation.textContent = "Validé l'article";
+        Validation.textContent = lang.produit.buttonTitle;
         Validation.classList.add("col-lg-5");
         Validation.classList.add("validation");
         Validation.style.backgroundColor = "blue";
@@ -123,36 +121,38 @@ requestProduct.onload = function () {
                  
         // Affichage du boutton validé
         colorsProduct.appendChild(Validation);
-
-        // generation d'une date avec 1 semaine d'avance pour l'expiration des cookies
-        let numDate = new Date(Date.parse(new Date())+(604800*1000))
         
         // Création du bouton validée avec ajout des cookies
         let validButton = document.getElementById("button_Validate")
         validButton.dataset.toggle = "modal"
         validButton.onclick = 
         function() {
-            if (indexColor == null){
-                alert("Vous avez pas choisit votre couleur");
+            if (indexColor == null || indexColor == 0){
+                alert(lang.produit.dontColor);
             }else{                
                 var cookies = [indexQuantity,image,name,price,description];                   
                 setCookie(IDproduct+'||'+indexColor,cookies,numDate);  
-                window.location = "./panier.html";                    
+                window.location = lang.produit.location;                    
             }
         }
-
     // Mise en place du select du choix des couleurs de l'article
     let imageProduct = document.getElementById("image");
         
+    //Ajout d'un lien sur l'image --> pour plus grand
+    const aTeddiesImage = document.createElement("a")
+    aTeddiesImage.href = teddiesChoice.imageUrl;
+    aTeddiesImage.title = lang.produit.openBigSize;
+    
+    imageProduct.appendChild(aTeddiesImage);
+    
     // ajout pour la balise image
     const imgProduct = document.createElement("img");
     imgProduct.src = image;
     imgProduct.alt = description;
-    imgProduct.classList.add("grd-");
     imgProduct.classList.add("image_product");
     
     // Affichage de l'image
-    imageProduct.appendChild(imgProduct);
+    aTeddiesImage.appendChild(imgProduct);
 }
 // on envoie la requête
 requestProduct.send()

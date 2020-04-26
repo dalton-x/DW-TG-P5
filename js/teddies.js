@@ -16,10 +16,11 @@ requestTeddies.onload = function () {
         // Ajout d une div avec la class bootstrap
         const teddieDiv = document.createElement("div");
         teddieDiv.classList.add("col-lg-3");
-        teddieDiv.classList.add("col-xs-5");
+        teddieDiv.classList.add("col-xs-12");
         teddieDiv.style.border = "1px solid black";
         teddieDiv.style.borderRadius = "20px";
         teddieDiv.style.marginBottom = "2%";
+        teddieDiv.style.padding = "2%";
         teddieDiv.id = "teddies"+i;
 
         // insertion de la DIV dans la page HTML
@@ -34,36 +35,47 @@ requestTeddies.onload = function () {
 
         // Ajout de text pour le prix de l'article
         const teddiePrice = document.createElement("p");
-        teddiePrice.textContent = "prix : " + teddies[i].price + " €";
+        teddiePrice.textContent = lang.index.price + teddies[i].price + " €";
+
+        //Ajout d'un lien sur l'image --> produit
+        const aTeddiesImage = document.createElement("a")
+        aTeddiesImage.href = lang.index.link+teddies[i]._id;
 
         // ajout pour la balise image
         const teddieImage = document.createElement("img");
         teddieImage.src = teddies[i].imageUrl;
         teddieImage.alt = teddies[i].description;
-        teddieImage.title = teddies[i].description;
-        teddieImage.classList.add("grd-");
+        teddieImage.title = teddies[i].name +" : "+ teddies[i].description;
         teddieImage.classList.add("image");
 
         // ajout pour la balise description
         const teddietitleDesc = document.createElement("p");
-        teddietitleDesc.textContent += "description du produit : ";
+        teddietitleDesc.textContent += lang.index.desc;
 
         // ajout pour la balise description
         const teddieDesc = document.createElement("p");
         teddieDesc.textContent += teddies[i].description;
 
         // ajout pour la balise link
-        const teddielink = document.createElement("a");
-        teddielink.href = "produit.html?IDProduct="+teddies[i]._id;
-        teddielink.textContent = "Fiche produit";
+        const teddiebutton = document.createElement("button");
+        teddiebutton.id = ('button_product')
+        
+            const teddielink = document.createElement("a")
+            teddielink.href = lang.index.link+teddies[i]._id;
+            teddielink.textContent = lang.index.fiche;
+            teddielink.style.textDecoration = "none"
+            teddielink.style.color = "blue"
 
         // ici ordre d'apparition sur la page web
         parent2.appendChild(teddieName)
-        parent2.appendChild(teddieImage)
+        parent2.appendChild(aTeddiesImage)
+        aTeddiesImage.appendChild(teddieImage)
         parent2.appendChild(teddietitleDesc)
         parent2.appendChild(teddieDesc)
         parent2.appendChild(teddiePrice)
-        parent2.appendChild(teddielink)
+        parent2.appendChild(teddiebutton)
+        teddiebutton.appendChild(teddielink)
+        
 
     }
 }
