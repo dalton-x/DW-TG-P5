@@ -1,12 +1,12 @@
 /* DEBUG GRIDCSS */
 
-/* [class*="col-"], footer{
+[class*="col-"], footer{
     border: 2px solid black;
     border-radius: 6px;
 }
 .row{
 border: 2px solid red;
-} */
+}
 
 /* FIN DEBUG */
 
@@ -103,17 +103,18 @@ a{
 /* Boutton validé de la page produit */
 .validation{
     text-decoration: none;
+    cursor: pointer;
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
 }
-.validation:hover{
+/* .validation:hover{
     text-decoration: none;
     border: 2px red solid;
     cursor: default;
-}
+} */
 
 main{
     margin-bottom: 10%;

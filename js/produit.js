@@ -15,6 +15,8 @@ function setCookie(nom, valeur, expire, chemin, domaine, securite){
                     ((securite == true) ? '; secure' : '');
 }
 
+
+
 // charge les données de notre JSON récupéré
 requestProduct.onload = function () {
 
@@ -24,6 +26,7 @@ requestProduct.onload = function () {
     let name = teddiesChoice.name;
     let description = teddiesChoice.description;
     let image = teddiesChoice.imageUrl;
+    let price = teddiesChoice.price;
 
     //Mise en place du titre en H2
     let titleProduct = document.getElementById("title");
@@ -131,7 +134,7 @@ requestProduct.onload = function () {
             if (indexColor == null){
                 alert("Vous avez pas choisit votre couleur");
             }else{                
-                var cookies = [indexQuantity,indexColor];                   
+                var cookies = [indexQuantity,image,name,price,description];                   
                 setCookie(IDproduct+'||'+indexColor,cookies,numDate);  
                 window.location = "./panier.html?color="+indexColor;                    
             }
