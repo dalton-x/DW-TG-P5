@@ -65,6 +65,7 @@ requestProduct.onload = function () {
         let indexColor
         const select  = document.createElement("select");
         select.id = "colors";
+        select.classList.add("select_produit");
         select.addEventListener("change",onChangeInput, true);
         select[select.options.length] = new Option("Couleur", "0");
         
@@ -94,7 +95,8 @@ requestProduct.onload = function () {
         const input = document.createElement("input");
         input.type = "number";
         input.id = "quantity";
-        input.value = 1;        
+        input.value = 1;       
+        input.classList.add("input_produit"); 
         input.addEventListener("change",onChangeInput, true)  
         input.setAttribute("min",1);
         input.setAttribute("max",200);

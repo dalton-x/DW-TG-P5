@@ -21,27 +21,39 @@ border: 2px solid red;
     overflow: hidden;
 }
 
-/* Gestion des images sur la page inde et produit */
-.image{
+/* Gestion des images sur la page index et produit */
+.image_index{
     width: 60%;
     height: 20vh;
+    border-radius: 20px;
+    box-shadow: 1px 1px 20px rgb(53, 53, 53);
+    transition: all 1s ease;
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -ms-transition: all 1s ease;
+    -o-transition: all 1s ease;
+}  
+.image_index:hover {
+    transform: scale(0.9);
+    /* opacity: 50%; */
+    -webkit-transform: scale(0.9);
+    -moz-transform: scale(0.9);
+    -ms-transform: scale(0.9);
+    -o-transform: scale(0.9);
 }
 
 .image_product{
     width: 100%;
-}
-
-.image, .image_product{
+    box-shadow: 1px 1px 20px rgb(53, 53, 53);
     display: flex;
     justify-content: center;
     border-radius: 20px;
     margin: auto;
     overflow: hidden;
-    -webkit-border-radius: 20%;
-    -moz-border-radius: 20%;
-    -ms-border-radius: 20%;
-    -o-border-radius: 20%;
-
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
 }
 
 .product_panier{
@@ -50,6 +62,13 @@ border: 2px solid red;
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
+}
+.input_produit, .select_produit{
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
 }
 
 /* Réglage de la taille des inputs */
@@ -81,7 +100,6 @@ body{
     background-color: bisque;
 }
 body.panier, body.produit{
-    height: 200px;
     overflow: hidden;
 }
 /*  */

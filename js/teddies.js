@@ -17,6 +17,7 @@ requestTeddies.onload = function () {
         const teddieDiv = document.createElement("div");
         teddieDiv.classList.add("col-lg-3");
         teddieDiv.classList.add("col-xs-12");
+        teddieDiv.classList.add("items_index");
         teddieDiv.style.border = "1px solid black";
         teddieDiv.style.borderRadius = "20px";
         teddieDiv.style.marginBottom = "2%";
@@ -46,7 +47,7 @@ requestTeddies.onload = function () {
         teddieImage.src = teddies[i].imageUrl;
         teddieImage.alt = teddies[i].description;
         teddieImage.title = teddies[i].name +" : "+ teddies[i].description;
-        teddieImage.classList.add("image");
+        teddieImage.classList.add("image_index");
 
         // ajout pour la balise description
         const teddietitleDesc = document.createElement("p");
@@ -62,7 +63,8 @@ requestTeddies.onload = function () {
         
             const teddielink = document.createElement("a")
             teddielink.href = lang.index.link+teddies[i]._id;
-            teddielink.textContent = lang.index.fiche;
+            teddielink.textContent = lang.index.fiche;            
+            teddielink.classList.add("link_index");
             teddielink.style.textDecoration = "none"
             teddielink.style.color = "blue"
 
