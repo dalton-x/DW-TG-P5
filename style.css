@@ -24,6 +24,7 @@ border: 2px solid red;
 /* Gestion des images sur la page inde et produit */
 .image{
     width: 60%;
+    height: 20vh;
 }
 
 .image_product{
@@ -61,7 +62,9 @@ border: 2px solid red;
 #article_panier{
     height: 450px;
 }
-
+.return_index{
+    text-align: initial;
+}
 /* button du panier */
 button{
     color: blue;
@@ -77,7 +80,10 @@ button{
 body{
     background-color: bisque;
 }
-
+body.panier, body.produit{
+    height: 200px;
+    overflow: hidden;
+}
 /*  */
 [class*="col-lg"],main{
     margin: 0% 1% 0% 1%;
@@ -90,6 +96,8 @@ footer{
     font-weight: bold;
     position: fixed;
     bottom: 0;left: 0;right: 0;
+    text-align: end;
+    padding-right: 5%;
 }
 
 h1{
