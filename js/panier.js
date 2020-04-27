@@ -55,13 +55,21 @@ if (window.location.pathname == '/panier.html' ){
             
             // ajout pour la balise image
             let imageProduct = document.getElementById("panier_image"+i);
-            const img_Product = document.createElement("img");
-                img_Product.src = image;
-                img_Product.alt = description;
-                img_Product.classList.add("image_product");
 
-            // Affichage de l'image
-            imageProduct.appendChild(img_Product);
+                //Ajout d'un lien sur l'image --> pour plus grand
+            const aTeddiesImage = document.createElement("a")
+            aTeddiesImage.href = lang.index.link+ID;
+            aTeddiesImage.title = lang.panier.return;
+            
+            imageProduct.appendChild(aTeddiesImage);
+
+                const img_Product = document.createElement("img");
+                    img_Product.src = image;
+                    img_Product.alt = description;
+                    img_Product.classList.add("image_product");
+
+                // Affichage de l'image
+                aTeddiesImage.appendChild(img_Product);
 
             // Création de la colonne pour affichage des infos du produit
             const info_Product = document.createElement("div");
@@ -219,6 +227,7 @@ if (window.location.pathname == '/panier.html' ){
 
                         const display_del = document.createElement("button");
                         display_del.value = nameCookies;
+                        display_del.title = lang.panier.del;
                         display_del.onclick = function () {
                             document.cookie = display_del.value + lang.panier.expiration;
                             location.reload(true);

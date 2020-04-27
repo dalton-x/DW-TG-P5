@@ -123,6 +123,11 @@ requestProduct.onload = function () {
                  
         // Affichage du boutton validé
         colorsProduct.appendChild(Validation);
+
+        //ajout infos dans le modal
+        let infoModal = document.getElementById("returnProduct")
+        info_modal = document.createElement("p");        
+        
         
         // Création du bouton validée avec ajout des cookies
         let validButton = document.getElementById("button_Validate")
@@ -131,30 +136,36 @@ requestProduct.onload = function () {
         function() {
             if (indexColor == null || indexColor == 0){
                 alert(lang.produit.dontColor);
-            }else{                
+            }else{
+                validButton.dataset.target = "#ChoiceDest";          
+                info_modal.textContent = lang.panier.modal_Dest_1+indexQuantity+" "+name+lang.panier.modal_Dest_2+indexColor+" .";
                 var cookies = [indexQuantity,image,name,price,description];                   
-                setCookie(IDproduct+'||'+indexColor,cookies,numDate);  
-                window.location = lang.produit.location;                    
+                setCookie(IDproduct+'||'+indexColor,cookies,numDate);                   
             }
         }
-    // Mise en place du select du choix des couleurs de l'article
-    let imageProduct = document.getElementById("image");
-        
-    //Ajout d'un lien sur l'image --> pour plus grand
-    const aTeddiesImage = document.createElement("a")
-    aTeddiesImage.href = teddiesChoice.imageUrl;
-    aTeddiesImage.title = lang.produit.openBigSize;
-    
-    imageProduct.appendChild(aTeddiesImage);
+        // Mise en place du select du choix des couleurs de l'article
+        infoModal.appendChild(info_modal);
+
+    let imageProduct = document.getElementById("image");    
     
     // ajout pour la balise image
     const imgProduct = document.createElement("img");
     imgProduct.src = image;
     imgProduct.alt = description;
-    imgProduct.classList.add("image_product");
-    
+    imgProduct.classList.add("image_product");    
+    imgProduct.dataset.toggle = "modal";
+    imgProduct.dataset.target = "#ChoiceImg"; 
+
+        let returnImg = document.getElementById("returnImg"); 
+        const return_Img = document.createElement("img");
+        return_Img.src = image;
+        return_Img.alt = description;
+        return_Img.classList.add("image_product_modal");
+
+        returnImg.appendChild(return_Img);
+
     // Affichage de l'image
-    aTeddiesImage.appendChild(imgProduct);
+    imageProduct.appendChild(imgProduct);
 }
 // on envoie la requête
 requestProduct.send()

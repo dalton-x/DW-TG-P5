@@ -11,7 +11,7 @@ let language ={
         choiceColor : "Choix de la couleur :",
         titleDescription : "Description de l'article",
         quantity : "Quantitée :",
-        dontColor : "Vous n'avez pas choisit votre couleur",
+        dontColor : "⛔ Vous n'avez pas choisit de couleur",
         openBigSize : "Cliquez ICI pour voir en plus grand"
     },
     panier : {
@@ -22,6 +22,10 @@ let language ={
         priceUnit : "prix à l'unitée : ",
         color : "Couleur : ",
         quantity : "Quantitée : ",
-        subTotal : "Sous-Total : "
+        subTotal : "Sous-Total : ",
+        return : "Retour au produit",
+        del : "Supprimer l'article",
+        modal_Dest_1 :"Vous avez choisit ",
+        modal_Dest_2 :" avec la couleur "
     }
 }

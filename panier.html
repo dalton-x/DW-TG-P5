@@ -30,7 +30,7 @@
         <div id="inner" class="container-fluid">
             <div class="row">
                 <div class="col-md-12">
-                    <a class="return_index" href="./index.html"> <p><i class="fas fa-arrow-left"></i> Retour aux produits</p></a><h2>Récapitulatif de votre commande</h2>
+                    <a class="return_index" href="./index.html"> <p><i class="fas fa-arrow-left"></i> Liste des produits</p></a><h2>Récapitulatif de votre commande</h2>
                 </div>
             </div>
             <div id="article" class="row">
@@ -49,14 +49,13 @@
                 <div class="col-md-2">
                     <div class="row">
                         <div id="panier_form" class="col-md-12">
-                            <form id="myForm" method="post" action="" >
-                                <br>Pr&eacute;nom<br><input name="text1" id="text1" type="text" >
-                                <br>Nom<br><input name="text2" id="text2" type="text" >
-                                <br>Adresse<br><input name="text3" id="text3" type="text" >
-                                <br>Ville<br><input name="text4" id="text4" type="text" >
-                                <br>Email<br><input name="email5" id="email5" type="email" >
-                                <br><input name="submit6" type="submit" value="Valider" >
-                            </form>
+                            <p>Vos Coordonées</p>
+                            <br>Pr&eacute;nom<br><input name="firstname" id="firstname" type="text" required>
+                            <br>Nom<br><input name="lastname" id="lastname" type="text" required>
+                            <br>Adresse<br><input name="adress" id="adress" type="text" required>
+                            <br>Ville<br><input name="city" id="city" type="text" required>
+                            <br>Email<br><input name="email" id="email" type="email" required>
+                            <br><button type="button" onclick="sendData({test:'ok'})">Cliquez ici !</button>
                         </div>
                     </div>
                 </div>

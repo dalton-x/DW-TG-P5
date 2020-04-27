@@ -42,7 +42,7 @@ border: 2px solid red;
     -o-transform: scale(0.9);
 }
 
-.image_product{
+.image_product, .image_product_modal{    
     width: 100%;
     box-shadow: 1px 1px 20px rgb(53, 53, 53);
     display: flex;
@@ -79,7 +79,10 @@ border: 2px solid red;
     width: 150px;
 }
 #article_panier{
-    height: 450px;
+    height: 550px;
+}
+.fa-times{
+    color: red;
 }
 .return_index{
     text-align: initial;
