@@ -62,7 +62,6 @@ requestProduct.onload = function () {
         colorsProduct.appendChild(br1);
 
         // Création du select pour le choix de la couleur
-        let indexColor
         const select  = document.createElement("select");
         select.id = "colors";
         select.classList.add("select_produit");
@@ -91,7 +90,6 @@ requestProduct.onload = function () {
         colorsProduct.appendChild(labelInput);
         colorsProduct.appendChild(br3);
 
-        let indexQuantity
         const input = document.createElement("input");
         input.type = "number";
         input.id = "quantity";
@@ -117,9 +115,9 @@ requestProduct.onload = function () {
         Validation.textContent = lang.produit.buttonTitle;
         Validation.classList.add("col-lg-5");
         Validation.classList.add("validation");
-        Validation.style.backgroundColor = "blue";
+        Validation.style.backgroundColor = colorOrange;
         Validation.style.top = "15%";
-        Validation.style.color = "yellow";
+        Validation.style.color = colorBlack;
                  
         // Affichage du boutton validé
         colorsProduct.appendChild(Validation);

@@ -18,7 +18,6 @@ requestTeddies.onload = function () {
         teddieDiv.classList.add("col-lg-3");
         teddieDiv.classList.add("col-xs-12");
         teddieDiv.classList.add("items_index");
-        teddieDiv.style.border = "1px solid black";
         teddieDiv.style.borderRadius = "20px";
         teddieDiv.style.marginBottom = "2%";
         teddieDiv.style.padding = "2%";
@@ -33,6 +32,7 @@ requestTeddies.onload = function () {
         // Ajout de texte pour le nom de l' objet
         const teddieName = document.createElement("h2");
         teddieName.textContent = teddies[i].name;
+        teddieName.classList.add("title_name");
 
         // Ajout de text pour le prix de l'article
         const teddiePrice = document.createElement("p");
@@ -52,21 +52,24 @@ requestTeddies.onload = function () {
         // ajout pour la balise description
         const teddietitleDesc = document.createElement("p");
         teddietitleDesc.textContent += lang.index.desc;
+        teddietitleDesc.classList.add("desc_index_title");
 
         // ajout pour la balise description
         const teddieDesc = document.createElement("p");
         teddieDesc.textContent += teddies[i].description;
+        teddieDesc.classList.add("desc_index");
 
         // ajout pour la balise link
         const teddiebutton = document.createElement("button");
         teddiebutton.id = ('button_product')
+        teddiebutton.style.backgroundColor = colorOrange;
         
             const teddielink = document.createElement("a")
             teddielink.href = lang.index.link+teddies[i]._id;
-            teddielink.textContent = lang.index.fiche;            
+            teddielink.textContent = lang.index.fiche;
             teddielink.classList.add("link_index");
-            teddielink.style.textDecoration = "none"
-            teddielink.style.color = "blue"
+            teddielink.style.textDecoration = "none";
+            teddielink.style.color = colorBlack;
 
         // ici ordre d'apparition sur la page web
         parent2.appendChild(teddieName)

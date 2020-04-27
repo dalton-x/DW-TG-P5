@@ -8,16 +8,28 @@ let image
 let nameProduct
 let price
 let description
-let totalArrayCommand =[]
+let totalArrayCommand = []
 let numberOfItemsInPanier
 let ID_Color
+let ValidCommand
+
+let buttonValid
+let result
+let indexQuantity
+let indexColor
+
+
+//Variable des couleurs
+let colorBlack = "black";
+let colorOrange = "#E68B07"
+let colorGrey = "grey"
+
 
 //Choix de la langue du site
 let lang = language
 
 // generation d'une date avec 1 semaine d'avance pour l'expiration des cookies
 let numDate = new Date(Date.parse(new Date())+(604800*1000))
-console.log(numDate)
 
 // Récupération de tout les cookies de la page
 var getAllCookies = document.cookie;

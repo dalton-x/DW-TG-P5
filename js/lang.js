@@ -1,9 +1,9 @@
 let language ={    
     index : {
         link : "produit.html?IDProduct=",
-        desc : "description du produit : ",
+        desc : "Description du produit : ",
         fiche : "Fiche produit",
-        price : "prix : "
+        price : "Prix : "
     },
     produit : {
         buttonTitle : "Validé l'article",
@@ -15,11 +15,11 @@ let language ={
         openBigSize : "Cliquez ICI pour voir en plus grand"
     },
     panier : {
-        inner : '<div>'+'<h2>Votre panier est vide</h2> '+'<a href="../index.html">Retour a l\'acceuil</a>'+'</div>',
+        inner : '<div>'+'<h2>Votre panier est vide</h2> '+'<a href="../index.html"><i class="fas fa-arrow-left"></i> Retour aux produits</a>'+'</div>',
         expiration : "= ; expires = Thu, 01 Jan 1970 00:00:00 GMT",
-        totalCommande : "total de votre commande ",
-        emptyCart : "Vider le panier",
-        priceUnit : "prix à l'unitée : ",
+        totalCommande : "Total de la commande ",
+        emptyCart : "Vider le panier ",
+        priceUnit : "Prix à l'unitée : ",
         color : "Couleur : ",
         quantity : "Quantitée : ",
         subTotal : "Sous-Total : ",

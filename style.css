@@ -12,8 +12,21 @@ border: 2px solid red;
 
 /* Ajout de polices d'ecritures */
 @font-face {
-    font-family: 'belligerent';
-    src: url('./font/belligerent.ttf');
+    font-family: "belligerent";
+    src: url("./font/belligerent.ttf");
+}
+@font-face {
+    font-family: "SimpleRonde";
+    src: url("./font/SimpleRonde.ttf");
+}
+@font-face {
+    font-family: "Amazon Ember";
+    src: url("//db.onlinewebfonts.com/t/157c6cc36dd65b1b2adc9e7f3329c761.eot");
+    src: url("//db.onlinewebfonts.com/t/157c6cc36dd65b1b2adc9e7f3329c761.eot?#iefix") format("embedded-opentype"),
+        url("//db.onlinewebfonts.com/t/157c6cc36dd65b1b2adc9e7f3329c761.woff2") format("woff2"),
+        url("//db.onlinewebfonts.com/t/157c6cc36dd65b1b2adc9e7f3329c761.woff") format("woff"),
+        url("//db.onlinewebfonts.com/t/157c6cc36dd65b1b2adc9e7f3329c761.ttf") format("truetype"),
+        url("//db.onlinewebfonts.com/t/157c6cc36dd65b1b2adc9e7f3329c761.svg#Amazon Ember") format("svg");
 }
 
 /* Empêche le dépassement des flottants. */
@@ -21,30 +34,56 @@ border: 2px solid red;
     overflow: hidden;
 }
 
-/* Gestion des images sur la page index et produit */
-.image_index{
+/* Index */
+.title_name {
+    font-family: "belligerent";
+}
+.desc_index,
+.desc_index_title {
+    font-family: "Amazon Ember";
+}
+.desc_index_title {
+    margin-top: 4%;
+}
+.panier_button {
+    background-color: #e68b07;
+}
+.items_index{
+    background-color: whitesmoke;
+    box-shadow: 1px 1px 20px grey;
+}
+a {
+    color: black;
+}
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+/* Gestion des images sur la page index */
+.image_index {
     width: 60%;
     height: 20vh;
     border-radius: 20px;
-    box-shadow: 1px 1px 20px rgb(53, 53, 53);
+    box-shadow: 1px 1px 20px #8F5BFE;
     transition: all 1s ease;
     -webkit-transition: all 1s ease;
     -moz-transition: all 1s ease;
     -ms-transition: all 1s ease;
     -o-transition: all 1s ease;
-}  
+}
 .image_index:hover {
     transform: scale(0.9);
-    /* opacity: 50%; */
     -webkit-transform: scale(0.9);
     -moz-transform: scale(0.9);
     -ms-transform: scale(0.9);
     -o-transform: scale(0.9);
 }
 
-.image_product, .image_product_modal{    
+/* Gestion des images sur la page produit */
+.image_product,
+.image_product_modal {
     width: 100%;
-    box-shadow: 1px 1px 20px rgb(53, 53, 53);
+    box-shadow: 1px 1px 20px #8F5BFE;
     display: flex;
     justify-content: center;
     border-radius: 20px;
@@ -56,14 +95,15 @@ border: 2px solid red;
     -o-border-radius: 20px;
 }
 
-.product_panier{
+.product_panier {
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
 }
-.input_produit, .select_produit{
+.input_produit,
+.select_produit {
     border-radius: 10px;
     -webkit-border-radius: 10px;
     -moz-border-radius: 10px;
@@ -72,25 +112,27 @@ border: 2px solid red;
 }
 
 /* Réglage de la taille des inputs */
-#selectColor{
+#selectColor {
     width: 150px;
 }
-#inputQuantity{
+#inputQuantity {
     width: 150px;
 }
-#article_panier{
+#article_panier {
     height: 550px;
 }
-.fa-times{
+.fa-times {
     color: red;
 }
-.return_index{
+.svg-inline--fa {
+    stroke: black;
+    stroke-width: 25;
+}
+.return_index {
     text-align: initial;
 }
 /* button du panier */
-button{
-    color: blue;
-    background-color: yellow;
+button {
     border-radius: 10%;
     -webkit-border-radius: 10%;
     -moz-border-radius: 10%;
@@ -99,41 +141,45 @@ button{
 }
 
 /* Ajout d'un fond sur les pages web */
-body{
+body {
     background-color: bisque;
 }
-body.panier, body.produit{
+body.panier,
+body.produit {
     overflow: hidden;
 }
 /*  */
-[class*="col-lg"],main{
+[class*="col-lg"],
+main {
     margin: 0% 1% 0% 1%;
 }
 
 /*  */
-footer{
+footer {
     font-size: 1.3em;
     text-align: center;
     font-weight: bold;
     position: fixed;
-    bottom: 0;left: 0;right: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
     text-align: end;
     padding-right: 5%;
 }
 
-h1{
+h1 {
     font-size: 5em;
     font-family: belligerent;
     color: #261624;
 }
 
-a{
+a {
     text-align: center;
     text-decoration: none;
 }
 
 /* Boutton validé de la page produit */
-.validation{
+.validation {
     text-decoration: none;
     cursor: pointer;
     border-radius: 15px;
@@ -143,6 +189,6 @@ a{
     -o-border-radius: 15px;
 }
 
-main{
+main {
     margin-bottom: 10%;
 }

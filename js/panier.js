@@ -29,7 +29,10 @@ if (window.location.pathname == '/panier.html' ){
                 descArray.push(value[i])
                 description = descArray.toString()
                 }
-
+            result ={
+                ID : ID
+            }
+            
         // On crée une row par article
         let articlePanier = document.getElementById("article_panier")
             const product_panier = document.createElement("div");
@@ -38,7 +41,7 @@ if (window.location.pathname == '/panier.html' ){
             product_panier.classList.add("product_panier");
             product_panier.classList.add("mb-3");
             product_panier.style.backgroundColor = "white"
-            product_panier.style.border = '5px red solid'
+            product_panier.style.border = '5px grey solid'
 
             // On Insere la row dans la page HTML
             articlePanier.appendChild(product_panier);
@@ -237,13 +240,37 @@ if (window.location.pathname == '/panier.html' ){
 
                             const trash_i = document.createElement("i");
                             trash_i.classList.add("fas");
-                            trash_i.classList.add("fa-trash");
+                            trash_i.classList.add("fa-trash-alt");
                             trash_i.value = nameCookies;
                             trash_i.style.color = "red";
                             
                             // Affichage du de la couleur
                             display_del.appendChild(trash_i);
-        }
+
+                            //console.log(getAllCookiesOK)
+        
+        buttonValid = document.createElement("button"); 
+        buttonValid.id = "buttonClear";
+        buttonValid.title = "Validée la Commande";
+        buttonValid.textContent = "Validée la Commande";
+        buttonValid.style.textDecoration ="none";
+        buttonValid.style.borderRadius = "20px"
+        buttonValid.style.color = colorBlack;
+        buttonValid.style.backgroundColor = "cyan";
+        buttonValid.onclick = 
+
+        //efface tout les cookies donc efface le panier 
+        function () {
+                ValidCommand = {
+                    product_id:{
+                        id: ID,
+                        name: nameProduct,
+                        color: ID_Color[1],
+                        quantity: value[0]
+                    }
+                }
+            console.log(ValidCommand[i].product_id)
+        }}
         // fin du "for" pour l'affichage dynamique de mes articles
         
         // Affichage du prix total de la commande
@@ -256,21 +283,21 @@ if (window.location.pathname == '/panier.html' ){
         panierTotal.textContent = lang.panier.totalCommande + totalCommand+ " €";
 
         // Mise en place dbouton pour vider le panier
-        let panierClear = document.getElementById("panier_clear");       
-        //panierClear.style.backgroundColor = "blue";
+        let panierClear = document.getElementById("panier_clear");
         panierClear.style.top = "15%";
         panierClear.classList.add("validation");
-        panierClear.classList.add("col-md-12");
         panierClear.classList.add("text-center");
         panierClear.classList.add("pull-down");
             const buttonClear = document.createElement("button"); 
+            buttonClear.id = "buttonClear";
             buttonClear.title = lang.panier.emptyCart;
             buttonClear.textContent = lang.panier.emptyCart;
             buttonClear.style.textDecoration ="none";
             buttonClear.style.borderRadius = "20px"
-            buttonClear.style.color = "yellow";
-            buttonClear.style.backgroundColor = "blue";
+            buttonClear.style.color = colorBlack;
+            buttonClear.style.backgroundColor = colorGrey;
             buttonClear.onclick = 
+
             //efface tout les cookies donc efface le panier 
             function () {
                 for (let i = 0; i < getAllCookiesOK.length; i++) {
@@ -279,9 +306,19 @@ if (window.location.pathname == '/panier.html' ){
                     location.reload(true);
                 }
             }
+
+            const ibuttonClear = document.createElement("i")
+            ibuttonClear.classList.add("fas");
+            ibuttonClear.classList.add("fa-trash-alt");
+            ibuttonClear.style.color = "red"
             
             // Affichage du boutton pour vider le panier
             panierClear.appendChild(buttonClear);
+            buttonClear.appendChild(ibuttonClear);
+
+            
+            
+            panierTotal.appendChild(buttonValid);
         
     }
 }
