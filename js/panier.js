@@ -6,7 +6,8 @@ if (window.location.pathname == '/panier.html' ){
         var emptyPanier = document.getElementById("inner");
         emptyPanier.innerHTML += lang.panier.inner;
     // si panier avec des objets
-    }else{
+    }else{        
+        let sendResult = new XMLHttpRequest();
         let getAllCookiesSpace = getAllCookies.split("%20").join(" ")
         let getAllCookiesSpaceVirgule = getAllCookiesSpace.split("%2C").join(",")
         let getAllCookiesOK = getAllCookiesSpaceVirgule.split("%3A").join(":")
@@ -16,6 +17,7 @@ if (window.location.pathname == '/panier.html' ){
             nameCookies = firstSplit[0];
             ID_Color = nameCookies.split('||');
                 ID = ID_Color[0];
+                ID = ID.split(" ").join("")
                 color = ID_Color[1];  
             let value = firstSplit[1].split(',');
             // value definit en variable
@@ -288,8 +290,7 @@ if (window.location.pathname == '/panier.html' ){
         // Affichage du boutton pour vider le panier
         panierClear.appendChild(buttonClear);
         buttonClear.appendChild(ibuttonClear);
-
-        //console.log(getAllCookiesOK)
+        
         let button_valid = document.getElementById("validCommand")
         buttonValid = document.createElement("button"); 
         buttonValid.id = "buttonClear";
@@ -311,15 +312,46 @@ if (window.location.pathname == '/panier.html' ){
                    Id
                 );
             };
-            let sendResult = new XMLHttpRequest();
-            sendResult.open("POST", "127.0.0.1:3000/api/teddies/order");
+            sendResult.open("POST", urlDB);
             sendResult.setRequestHeader("Content-Type", "application/json");
 
-            console.log("product_id",product_id)
-            console.log("contact",contact)
-            sendResult.send(JSON.stringify(contact),product_id);
-        }; 
+            console.log("product_id",product_id);
+            console.log("contact",contact);
+            resultFinal.product_id = (product_id);
+            resultFinal.contact = (contact);
+            console.log("resultFinal",resultFinal);
+            console.log("resultFinal.contact",resultFinal.contact);
+            console.log("resultFinal.product_id",resultFinal.product_id);
+            sendResult.send(resultFinal);
+        };
         
         button_valid.appendChild(buttonValid);
+
+        sendResult.addEventListener('readystatechange', function() {
+            // if (sendResult.readyState === XMLHttpRequest.UNSENT) {                   0
+            // console.log("UNSENT")
+            // };
+            // if (sendResult.readyState === XMLHttpRequest.OPENED) {                   1
+            // console.log("OPENED")
+            // };
+            // if (sendResult.readyState === XMLHttpRequest.HEADERS_RECEIVED) {         2
+            // console.log("HEADERS_RECEIVED")
+            // };
+            // if (sendResult.readyState === XMLHttpRequest.LOADING) {                  3
+            // console.log("LOADING")       
+            // };
+            if (sendResult.readyState === XMLHttpRequest.DONE) {                     4
+            console.log("DONE")
+            };
+            console.log("sendResult.status",sendResult.status)
+            if (sendResult.readyState == 4 ){//&& (sendResult.status === 200 || sendResult.status === 0)) {
+            var response = sendResult;
+            console.log("response",response)
+            
+            eraseHtml('inner')
+            var responsePanier = document.getElementById("inner");
+                responsePanier.innerHTML += response.response;
+            }
+        });
     };
 };

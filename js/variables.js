@@ -11,16 +11,15 @@ let description
 let totalArrayCommand = []
 let numberOfItemsInPanier
 let ID_Color
-let contact={
+const contact={
         firstName:'firstName',
         lastName:'lastName',
         adress:'adress',
         city:'city',
         email:'email@mail.fr'
     }
-let product_id = [
-]
-
+const product_id = []
+const resultFinal = {}
 
 
 let buttonValid
