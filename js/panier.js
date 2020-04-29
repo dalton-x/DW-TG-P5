@@ -8,8 +8,8 @@ if (window.location.pathname == '/panier.html' ){
     // si panier avec des objets
     }else{        
         let sendResult = new XMLHttpRequest();
-        let getAllCookiesSpace = getAllCookies.split("%20").join(" ")
-        let getAllCookiesSpaceVirgule = getAllCookiesSpace.split("%2C").join(",")
+        let getAllCookiesSpace = getAllCookies.split("%20").join(" ");
+        let getAllCookiesSpaceVirgule = getAllCookiesSpace.split("%2C").join(",");
         let getAllCookiesOK = getAllCookiesSpaceVirgule.split("%3A").join(":")
         getAllCookiesOK = getAllCookiesOK.split(';');
         for (let i = 0; i < getAllCookiesOK.length; i++) {
@@ -17,7 +17,7 @@ if (window.location.pathname == '/panier.html' ){
             nameCookies = firstSplit[0];
             ID_Color = nameCookies.split('||');
                 ID = ID_Color[0];
-                ID = ID.split(" ").join("")
+                ID = ID.split(" ").join("");
                 color = ID_Color[1];  
             let value = firstSplit[1].split(',');
             // value definit en variable
@@ -28,8 +28,8 @@ if (window.location.pathname == '/panier.html' ){
                 //creation array description
                 let descArray = [];
                 for (let i = 4; i < value.length; i++) {
-                descArray.push(value[i])
-                description = descArray.toString()
+                descArray.push(value[i]);
+                description = descArray.toString();
                 }
             
         // On crée une row par article
@@ -39,8 +39,8 @@ if (window.location.pathname == '/panier.html' ){
             product_panier.classList.add("row");
             product_panier.classList.add("product_panier");
             product_panier.classList.add("mb-3");
-            product_panier.style.backgroundColor = "white"
-            product_panier.style.border = '5px grey solid'
+            product_panier.style.backgroundColor = "white";
+            product_panier.style.border = '5px grey solid';
 
             // On Insere la row dans la page HTML
             articlePanier.appendChild(product_panier);
@@ -59,7 +59,7 @@ if (window.location.pathname == '/panier.html' ){
             let imageProduct = document.getElementById("panier_image"+i);
 
                 //Ajout d'un lien sur l'image --> pour plus grand
-            const aTeddiesImage = document.createElement("a")
+            const aTeddiesImage = document.createElement("a");
             aTeddiesImage.href = lang.index.link+ID;
             aTeddiesImage.title = lang.panier.return;
             
@@ -82,7 +82,7 @@ if (window.location.pathname == '/panier.html' ){
             productPanier.appendChild(info_Product);
 
                 let namePrice = document.getElementById('product_info'+i)
-                const name_Price = document.createElement("div")
+                const name_Price = document.createElement("div");
                 name_Price.id = "name_price"+i;
                 name_Price.classList.add("row");
 
@@ -122,8 +122,8 @@ if (window.location.pathname == '/panier.html' ){
                 price_Product.appendChild(price_unite);
 
                 // Ajout de la ligne pour la description 
-                let descriptionProduct = document.getElementById('product_info'+i)
-                const desc = document.createElement("div")
+                let descriptionProduct = document.getElementById('product_info'+i);
+                const desc = document.createElement("div");
                 desc.id = "desc"+i;
                 desc.classList.add("row");
 
@@ -141,12 +141,10 @@ if (window.location.pathname == '/panier.html' ){
                     //Création de la balise <p> pour insere la description
                     let displayDesc = document.getElementById("desc_product"+i);
                         const display_desc = document.createElement("p");
-                        //desc_product.style.overflow = "hidden";
                         display_desc.textContent = description;
 
                         // Affichage du de la description
                         displayDesc.appendChild(display_desc);
-                
 
                 // Ajout de la ligne pour la quantitée et la couleur
                 let colorQuantity = document.getElementById('product_info'+i)
@@ -168,7 +166,6 @@ if (window.location.pathname == '/panier.html' ){
                     //Création de la balise <p> pour insere la couleur
                     let displaycolor = document.getElementById("color_product"+i);
                         const display_color = document.createElement("p");
-                        //desc_product.style.overflow = "hidden";
                         display_color.textContent = lang.panier.color+color;
 
                         // Affichage du de la couleur
@@ -185,15 +182,14 @@ if (window.location.pathname == '/panier.html' ){
                     //Création de la balise <p> pour insere la couleur
                     let displayquantity = document.getElementById("quantity_product"+i);
                         const display_quantity = document.createElement("p");
-                        //desc_product.style.overflow = "hidden";
                         display_quantity.textContent = lang.panier.quantity+quantity+ " "+getQuantity(quantity);
 
                         // Affichage du de la couleur
                         displayquantity.appendChild(display_quantity);
 
                 // Ajout de la ligne pour le sous total 
-                let subTotalDel = document.getElementById('product_info'+i)
-                const subTotal_del = document.createElement("div")
+                let subTotalDel = document.getElementById('product_info'+i);
+                const subTotal_del = document.createElement("div");
                 subTotal_del.id = "subTotal_del"+i;
                 subTotal_del.classList.add("row");
 
@@ -212,7 +208,7 @@ if (window.location.pathname == '/panier.html' ){
                     let displaySubTotal = document.getElementById("subTotal_product"+i);
                         const display_SubTotal = document.createElement("p");                        
                         subTotalValue = value[0]*value[3];
-                        totalArrayCommand.push(subTotalValue)
+                        totalArrayCommand.push(subTotalValue);
                         numberOfItemsInPanier = totalArrayCommand.length;
                         display_SubTotal.textContent = lang.panier.subTotal+ subTotalValue +" €";
 
@@ -285,7 +281,7 @@ if (window.location.pathname == '/panier.html' ){
         const ibuttonClear = document.createElement("i")
         ibuttonClear.classList.add("fas");
         ibuttonClear.classList.add("fa-trash-alt");
-        ibuttonClear.style.color = "red"
+        ibuttonClear.style.color = "red";
         
         // Affichage du boutton pour vider le panier
         panierClear.appendChild(buttonClear);
@@ -301,8 +297,6 @@ if (window.location.pathname == '/panier.html' ){
         buttonValid.style.color = colorBlack;
         buttonValid.style.backgroundColor = "cyan";
         buttonValid.onclick = 
-
-        //
         function () {
             for (let i = 0; i < getAllCookiesOK.length; i++) {
                 let SplitResult = getAllCookiesOK[i].split('=');
@@ -315,8 +309,6 @@ if (window.location.pathname == '/panier.html' ){
             sendResult.open("POST", urlDB);
             sendResult.setRequestHeader("Content-Type", "application/json");
 
-            console.log("product_id",product_id);
-            console.log("contact",contact);
             resultFinal.product_id = (product_id);
             resultFinal.contact = (contact);
             console.log("resultFinal",resultFinal);
@@ -325,30 +317,17 @@ if (window.location.pathname == '/panier.html' ){
             sendResult.send(resultFinal);
         };
         
+        //Affichage du bouton validée la commande
         button_valid.appendChild(buttonValid);
 
         sendResult.addEventListener('readystatechange', function() {
-            // if (sendResult.readyState === XMLHttpRequest.UNSENT) {                   0
-            // console.log("UNSENT")
-            // };
-            // if (sendResult.readyState === XMLHttpRequest.OPENED) {                   1
-            // console.log("OPENED")
-            // };
-            // if (sendResult.readyState === XMLHttpRequest.HEADERS_RECEIVED) {         2
-            // console.log("HEADERS_RECEIVED")
-            // };
-            // if (sendResult.readyState === XMLHttpRequest.LOADING) {                  3
-            // console.log("LOADING")       
-            // };
-            if (sendResult.readyState === XMLHttpRequest.DONE) {                     4
-            console.log("DONE")
-            };
-            console.log("sendResult.status",sendResult.status)
+            console.log("sendResult.status",sendResult.status)  //log de la reponse status server
             if (sendResult.readyState == 4 ){//&& (sendResult.status === 200 || sendResult.status === 0)) {
             var response = sendResult;
-            console.log("response",response)
+            console.log("response",response);
             
-            eraseHtml('inner')
+            //Affichage de la reponse server
+            eraseHtml('inner');
             var responsePanier = document.getElementById("inner");
                 responsePanier.innerHTML += response.response;
             }
