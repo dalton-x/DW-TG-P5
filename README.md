@@ -20,16 +20,16 @@ console when the server starts, e.g. `Listening on port 3001`.
 
 * [x] Page index avec les articles
 * [x] Faire le style de la page
-* [ ] Faire un boutton pour aller à la fiche produit
-* [ ] Faire un lien pour avoir l'image en plus grand au clique sur la miniature
+* [x] Faire un boutton pour aller à la fiche produit
+* [x] Faire un lien pour avoir l'image en plus grand au clique sur la miniature
 
 ### PRODUIT
 * [x] Page produit fonctionnel
 * [ ] Faire le style de la page
-* [ ] popup retour liste article ou direction panier
+* [x] popup retour liste article ou direction panier
 
 ### PANIER
 * [x] Page panier fonctionnel
 * [ ] Faire le style de la page
-* [ ] finir le boutton supprimé article fonctionnel
+* [x] finir le boutton supprimé article fonctionnel
 * [ ] faire le traitement POST pour envoie des données

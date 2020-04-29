@@ -12,13 +12,13 @@ if (window.location.pathname == '/panier.html' ){
         let getAllCookiesOK = getAllCookiesSpaceVirgule.split("%3A").join(":")
         getAllCookiesOK = getAllCookiesOK.split(';');
         for (let i = 0; i < getAllCookiesOK.length; i++) {
-            let firstSplit = getAllCookiesOK[i].split('=');
+            firstSplit = getAllCookiesOK[i].split('=');
             nameCookies = firstSplit[0];
             ID_Color = nameCookies.split('||');
                 ID = ID_Color[0];
                 color = ID_Color[1];  
             let value = firstSplit[1].split(',');
-                // value definit en variable
+            // value definit en variable
             quantity = value[0];
             image = value[1];
             nameProduct = value[2];
@@ -29,9 +29,6 @@ if (window.location.pathname == '/panier.html' ){
                 descArray.push(value[i])
                 description = descArray.toString()
                 }
-            result ={
-                ID : ID
-            }
             
         // On crée une row par article
         let articlePanier = document.getElementById("article_panier")
@@ -245,32 +242,8 @@ if (window.location.pathname == '/panier.html' ){
                             trash_i.style.color = "red";
                             
                             // Affichage du de la couleur
-                            display_del.appendChild(trash_i);
-
-                            //console.log(getAllCookiesOK)
-        
-        buttonValid = document.createElement("button"); 
-        buttonValid.id = "buttonClear";
-        buttonValid.title = "Validée la Commande";
-        buttonValid.textContent = "Validée la Commande";
-        buttonValid.style.textDecoration ="none";
-        buttonValid.style.borderRadius = "20px"
-        buttonValid.style.color = colorBlack;
-        buttonValid.style.backgroundColor = "cyan";
-        buttonValid.onclick = 
-
-        //efface tout les cookies donc efface le panier 
-        function () {
-                ValidCommand = {
-                    product_id:{
-                        id: ID,
-                        name: nameProduct,
-                        color: ID_Color[1],
-                        quantity: value[0]
-                    }
-                }
-            console.log(ValidCommand[i].product_id)
-        }}
+                            display_del.appendChild(trash_i);       
+        }
         // fin du "for" pour l'affichage dynamique de mes articles
         
         // Affichage du prix total de la commande
@@ -288,37 +261,65 @@ if (window.location.pathname == '/panier.html' ){
         panierClear.classList.add("validation");
         panierClear.classList.add("text-center");
         panierClear.classList.add("pull-down");
-            const buttonClear = document.createElement("button"); 
-            buttonClear.id = "buttonClear";
-            buttonClear.title = lang.panier.emptyCart;
-            buttonClear.textContent = lang.panier.emptyCart;
-            buttonClear.style.textDecoration ="none";
-            buttonClear.style.borderRadius = "20px"
-            buttonClear.style.color = colorBlack;
-            buttonClear.style.backgroundColor = colorGrey;
-            buttonClear.onclick = 
+        const buttonClear = document.createElement("button"); 
+        buttonClear.id = "buttonClear";
+        buttonClear.title = lang.panier.emptyCart;
+        buttonClear.textContent = lang.panier.emptyCart;
+        buttonClear.style.textDecoration ="none";
+        buttonClear.style.borderRadius = "20px"
+        buttonClear.style.color = colorBlack;
+        buttonClear.style.backgroundColor = colorGrey;
+        buttonClear.onclick = 
 
-            //efface tout les cookies donc efface le panier 
-            function () {
-                for (let i = 0; i < getAllCookiesOK.length; i++) {
-                    let firstSplit = getAllCookiesOK[i].split('=');
-                    document.cookie = firstSplit[0] +lang.panier.expiration;
-                    location.reload(true);
-                }
+        //efface tout les cookies donc efface le panier 
+        function () {
+            for (let i = 0; i < getAllCookiesOK.length; i++) {
+                let firstSplit = getAllCookiesOK[i].split('=');
+                document.cookie = firstSplit[0] +lang.panier.expiration;
+                location.reload(true);
             }
+        }
 
-            const ibuttonClear = document.createElement("i")
-            ibuttonClear.classList.add("fas");
-            ibuttonClear.classList.add("fa-trash-alt");
-            ibuttonClear.style.color = "red"
-            
-            // Affichage du boutton pour vider le panier
-            panierClear.appendChild(buttonClear);
-            buttonClear.appendChild(ibuttonClear);
-
-            
-            
-            panierTotal.appendChild(buttonValid);
+        const ibuttonClear = document.createElement("i")
+        ibuttonClear.classList.add("fas");
+        ibuttonClear.classList.add("fa-trash-alt");
+        ibuttonClear.style.color = "red"
         
-    }
-}
+        // Affichage du boutton pour vider le panier
+        panierClear.appendChild(buttonClear);
+        buttonClear.appendChild(ibuttonClear);
+
+        //console.log(getAllCookiesOK)
+        let button_valid = document.getElementById("validCommand")
+        buttonValid = document.createElement("button"); 
+        buttonValid.id = "buttonClear";
+        buttonValid.title = "Validée la Commande";
+        buttonValid.textContent = "Validée la Commande";
+        buttonValid.style.textDecoration ="none";
+        buttonValid.style.borderRadius = "20px"
+        buttonValid.style.color = colorBlack;
+        buttonValid.style.backgroundColor = "cyan";
+        buttonValid.onclick = 
+
+        //
+        function () {
+            for (let i = 0; i < getAllCookiesOK.length; i++) {
+                let SplitResult = getAllCookiesOK[i].split('=');
+                SplitResult = SplitResult[0].split('||');
+                Id = SplitResult[0].split(" ").join("")
+                product_id.push(
+                   Id
+                );
+            };
+            let sendResult = new XMLHttpRequest();
+            sendResult.open("POST", "127.0.0.1:3000/api/teddies/order");
+            sendResult.setRequestHeader("Content-Type", "application/json");
+
+            console.log("product_id",product_id)
+            console.log("contact",contact)
+            sendResult.send(JSON.stringify(contact),product_id);
+        }; 
+        
+        button_valid.appendChild(buttonValid);
+    };
+};

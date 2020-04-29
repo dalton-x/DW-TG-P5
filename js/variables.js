@@ -11,13 +11,23 @@ let description
 let totalArrayCommand = []
 let numberOfItemsInPanier
 let ID_Color
-let ValidCommand
+let contact={
+        firstName:'firstName',
+        lastName:'lastName',
+        adress:'adress',
+        city:'city',
+        email:'email@mail.fr'
+    }
+let product_id = [
+]
+
+
 
 let buttonValid
 let result
 let indexQuantity
 let indexColor
-
+let firstSplit
 
 //Variable des couleurs
 let colorBlack = "black";
