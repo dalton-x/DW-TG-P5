@@ -137,8 +137,18 @@ requestProduct.onload = function () {
             }else{
                 validButton.dataset.target = "#ChoiceDest";          
                 info_modal.textContent = lang.panier.modal_Dest_1+indexQuantity+" "+name+lang.panier.modal_Dest_2+indexColor+" .";
-                var cookies = [indexQuantity,image,name,price,description];                   
-                setCookie(IDproduct+'||'+indexColor,cookies,numDate);                   
+                var value = {
+                    indexQuantity:indexQuantity,
+                    image:image,
+                    name:name,
+                    price:price,
+                    description:description};
+                var IDColor = {
+                    IDproduct:IDproduct,
+                    indexColor:indexColor
+                }
+                localStorage.setItem(JSON.stringify([IDColor]),JSON.stringify([value]));
+                //setCookie(IDproduct+'||'+indexColor,cookies,numDate);
             }
         }
         // Mise en place du select du choix des couleurs de l'article

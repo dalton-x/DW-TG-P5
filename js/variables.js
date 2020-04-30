@@ -11,15 +11,16 @@ let description
 let totalArrayCommand = []
 let numberOfItemsInPanier
 let ID_Color
-const contact={
+let values
+let contact={
         firstName:'firstName',
         lastName:'lastName',
         adress:'adress',
         city:'city',
         email:'email@mail.fr'
     }
-const product_id = []
-const resultFinal = {}
+let product_id = []
+let resultFinal = {}
 
 
 let buttonValid
@@ -41,7 +42,7 @@ let lang = language
 let numDate = new Date(Date.parse(new Date())+(604800*1000))
 
 // Récupération de tout les cookies de la page
-var getAllCookies = document.cookie;
+//var getAllCookies = document.cookie;
 
 // déclaration de l'adress de la BDD
 const urlDB = 'http://localhost:3000/api/teddies/'
@@ -63,13 +64,13 @@ function $_GET(param) {
 }
 
 // Mise en place des fonctions de la page
-function setCookie(nom, valeur, expire, chemin, domaine, securite){
-    document.cookie = nom + ' = ' + escape(valeur) + '  ' +
-                    ((expire == undefined) ? '' : ('; expires = ' + expire)) +
-                    ((chemin == undefined) ? '' : ('; path = ' + chemin)) +
-                    ((domaine == undefined) ? '' : ('; domain = ' + domaine)) +
-                    ((securite == true) ? '; secure' : '');
-}
+// function setCookie(nom, valeur, expire, chemin, domaine, securite){
+//     document.cookie = nom + ' = ' + escape(valeur) + '  ' +
+//                     ((expire == undefined) ? '' : ('; expires = ' + expire)) +
+//                     ((chemin == undefined) ? '' : ('; path = ' + chemin)) +
+//                     ((domaine == undefined) ? '' : ('; domain = ' + domaine)) +
+//                     ((securite == true) ? '; secure' : '');
+// }
 
 // function pour effacer l'HTML
 const eraseHtml = container => {
@@ -89,9 +90,4 @@ function getQuantity(num){
     }else{
         return quantityUnite = "unitées"
     }
-}
-
-//changement de langue
-function changeLanguage(lang){
-	console.log(lang)
 }
