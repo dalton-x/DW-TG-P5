@@ -11,16 +11,9 @@ let description
 let totalArrayCommand = []
 let numberOfItemsInPanier
 let ID_Color
+let totalCommand
 let values
-let contact={
-        firstName:'firstName',
-        lastName:'lastName',
-        adress:'adress',
-        city:'city',
-        email:'email@mail.fr'
-    }
-let product_id = []
-let resultFinal = {}
+
 
 
 let buttonValid
@@ -34,12 +27,24 @@ let colorBlack = "black";
 let colorOrange = "#E68B07"
 let colorGrey = "grey"
 
+//Value pour le formulaire
+let firstName
+let last_name
+let email
+let adress
+let city
+
+//Valeurs pour l'envoie au serveur
+let contact={}
+let product_id = []
+let resultFinal = {}
+let response
 
 //Choix de la langue du site
 let lang = language
 
 // generation d'une date avec 1 semaine d'avance pour l'expiration des cookies
-let numDate = new Date(Date.parse(new Date())+(604800*1000))
+//let numDate = new Date(Date.parse(new Date())+(604800*1000))
 
 // Récupération de tout les cookies de la page
 //var getAllCookies = document.cookie;
@@ -89,5 +94,22 @@ function getQuantity(num){
         return quantityUnite = "unitée"
     }else{
         return quantityUnite = "unitées"
+    }
+}
+
+function getValue() {
+    // Sélectionner l'élément input et récupérer sa valeur
+    firstName = document.getElementById("first_name").value;
+    lastName = document.getElementById("last_name").value;
+    email = document.getElementById("email").value;
+    adress = document.getElementById("adress").value;
+    city = document.getElementById("city").value;
+    // Afficher la valeur
+    return contact = {
+        firstName:firstName,
+        lastName:lastName,
+        email:email,
+        adress:adress,
+        city:city
     }
 }

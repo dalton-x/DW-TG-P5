@@ -1,3 +1,8 @@
+const promess = new Promise((resolve, reject) => {
+
+    
+});
+
 // variable pour affecter l'objet XMLHttpRequest
 let requestTeddies = new XMLHttpRequest()
 

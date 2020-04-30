@@ -6,7 +6,7 @@ if (window.location.pathname == '/panier.html' ){
         var emptyPanier = document.getElementById("inner");
         emptyPanier.innerHTML += lang.panier.inner;
     // si panier avec des objets
-    }else{        
+    }else{
         let sendResult = new XMLHttpRequest();
         let keysLocalStorage = Object.keys(localStorage);
             for (let i = 0; i < keysLocalStorage.length; i++){
@@ -245,8 +245,8 @@ if (window.location.pathname == '/panier.html' ){
         panierTotal.classList.add("text-center");
         panierTotal.classList.add("col-md-12");
         const reducer = (accumulator, currentValue) => accumulator + currentValue;  
-        let totalCommand = totalArrayCommand.reduce(reducer);
-        panierTotal.textContent = lang.panier.totalCommande + totalCommand+ " €";
+        totalCommand = totalArrayCommand.reduce(reducer);
+        panierTotal.textContent = lang.panier.totalCommande + totalCommand + " €";
 
         // Mise en place du bouton pour vider le panier
         let panierClear = document.getElementById("panier_clear");
@@ -280,16 +280,35 @@ if (window.location.pathname == '/panier.html' ){
         
         let button_valid = document.getElementById("validCommand")
         buttonValid = document.createElement("button"); 
+        buttonValid.dataset.toggle = "modal";
         buttonValid.id = "buttonClear";
         buttonValid.title = "Validée la Commande";
-        buttonValid.textContent = "Validée la Commande";
+        buttonValid.textContent = "Validé le panier";
         buttonValid.style.textDecoration ="none";
         buttonValid.style.borderRadius = "20px"
         buttonValid.style.color = colorBlack;
         buttonValid.style.backgroundColor = "cyan";
         buttonValid.onclick = 
-        function () {
-            
+            function() {
+                buttonValid.dataset.target = "#ChoiceDest";
+            }
+        
+        //Affichage du bouton validée la commande
+        button_valid.appendChild(buttonValid);
+
+        let submit_Form = document.getElementById("submitForm");
+        submitForm = document.createElement("button"); 
+        submitForm.textContent = "VALIDEE";
+        submitForm.classList.add("btn");
+        submitForm.classList.add("btn-warning");
+        submitForm.type = "submit";
+        submitForm.onclick =
+        function(){
+            getValue()
+            console.log(getValue())
+        // }
+        // // submitForm.onclick =
+        // function(){
             sendResult.open("POST", urlDB+'order');
             sendResult.setRequestHeader("Content-Type", "application/json");
             resultFinal = {                
@@ -299,20 +318,21 @@ if (window.location.pathname == '/panier.html' ){
             console.log(product_id)
             sendResult.send(JSON.stringify(resultFinal));
         };
-        
-        //Affichage du bouton validée la commande
-        button_valid.appendChild(buttonValid);
+
+        submit_Form.appendChild(submitForm);
 
         sendResult.addEventListener('readystatechange', function() {
             console.log("sendResult.status",sendResult.status)  //log de la reponse status server
             if (sendResult.readyState == 4 ) {
-            var response = sendResult;
-            console.log("response",response);            
-            localStorage.clear();
+            response = sendResult;
+            console.log("response",response.response);            
+            //localStorage.clear();
             //Affichage de la reponse server
-            eraseHtml('inner');
-            var responsePanier = document.getElementById("inner");
-                responsePanier.innerHTML += response.response;
+            window.location.href='./result.html';
+
+            // eraseHtml('inner');
+            // var responsePanier = document.getElementById("inner");
+            //     responsePanier.innerHTML += response.response;
             }
         });
     };
