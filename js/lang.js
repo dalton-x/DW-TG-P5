@@ -1,4 +1,4 @@
-let language ={    
+let lang ={    
     index : {
         link : "produit.html?IDProduct=",
         desc : "Description du produit : ",

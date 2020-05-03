@@ -39,8 +39,5 @@ let resultFinal = {}
 let response
 let responseOrderID
 
-//Choix de la langue du site
-let lang = language
-
 // déclaration de l'adress de la BDD
 const urlDB = 'http://localhost:3000/api/teddies/'

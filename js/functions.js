@@ -41,29 +41,15 @@ lastName = document.getElementById("last_name").value;
 email = document.getElementById("email").value;
 adress = document.getElementById("adress").value;
 city = document.getElementById("city").value;
-console.log("firstName",firstName.length)
-console.log("lastName",lastName.length)
-console.log("email",email.length)
-console.log("city",city.length)
-console.log("adress",adress.length)
-    if (firstName.length < 3){
-        alert ("Le prénom est mal rempli")
-    }else if(lastName.length < 3){
-        alert ("Le nom est mal rempli")
-    }else if(email.length < 3){
-        alert ("L'email est mal rempli")
-    }else if(adress.length < 3){
-        alert ("L'adresse est mal rempli")
-    }else if(city.length < 3){
-        alert ("La ville est mal rempli")
+    if (firstName.length < 3 || lastName.length < 3 || email.length < 3 || adress.length < 3 || city.length < 3){
+        return contact = false
     }else{
-        contact = {
-                firstName:firstName,
-                lastName:lastName,
-                email:email,
-                adress:adress,
-                city:city
-            };
-        console.log("contactFunction",contact)
+        return contact = {
+            firstName:firstName,
+            lastName:lastName,
+            email:email,
+            adress:adress,
+            city:city
+        };
     };
 };

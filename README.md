@@ -32,4 +32,4 @@ console when the server starts, e.g. `Listening on port 3001`.
 * [x] Page panier fonctionnel
 * [ ] Faire le style de la page
 * [x] finir le boutton supprimé article fonctionnel
-* [ ] faire le traitement POST pour envoie des données
+* [x] faire le traitement POST pour envoie des données

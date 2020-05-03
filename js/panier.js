@@ -306,20 +306,19 @@ if (window.location.pathname == '/panier.html' ){
         function(){
             // Récuperation ds valeur du formulaire de contact
             getValue()
-            if (contact !== undefined){
+            if (contact != false){
+                    resultFinal = {                
+                        contact: contact,
+                        products: product_id,
+                    };
                 //Envoie du panier + formulaire au serveur
                 sendResult.open("POST", urlDB+'order');
                 sendResult.setRequestHeader("Content-Type", "application/json");
-                resultFinal = {                
-                    contact: contact,
-                    products: product_id,
-                }
                 sendResult.send(JSON.stringify(resultFinal));
-            }else{
-                alert("Vous avez mal rempli le formulaire")
-            }            
-        };
-
+                }else{
+                    alert("Un champ est mal rempli")
+                };
+            };
         submit_Form.appendChild(submitForm);
 
         //Récupération de la reponse serveur
