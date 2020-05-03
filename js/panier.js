@@ -304,35 +304,35 @@ if (window.location.pathname == '/panier.html' ){
         submitForm.type = "submit";
         submitForm.onclick =
         function(){
+            // Récuperation ds valeur du formulaire de contact
             getValue()
-            console.log(getValue())
-        // }
-        // // submitForm.onclick =
-        // function(){
+            console.log(contact.length)
+            //Envoie du panier + formulaire au serveur
             sendResult.open("POST", urlDB+'order');
             sendResult.setRequestHeader("Content-Type", "application/json");
             resultFinal = {                
                 contact: contact,
                 products: product_id,
             }
-            console.log(product_id)
             sendResult.send(JSON.stringify(resultFinal));
         };
 
         submit_Form.appendChild(submitForm);
 
+        //Récupération de la reponse serveur
         sendResult.addEventListener('readystatechange', function() {
-            console.log("sendResult.status",sendResult.status)  //log de la reponse status server
             if (sendResult.readyState == 4 ) {
             response = sendResult;
-            console.log("response",response.response);            
-            //localStorage.clear();
+            let order = JSON.parse(response.responseText)
+            responseOrderID = order.orderId
+
+            //Supression du panier
+            localStorage.clear();
+            //Création d'un nouvel localStorage pour affichage sur la page result
+            localStorage.setItem(responseOrderID,totalCommand);
+            
             //Affichage de la reponse server
             window.location.href='./result.html';
-
-            // eraseHtml('inner');
-            // var responsePanier = document.getElementById("inner");
-            //     responsePanier.innerHTML += response.response;
             }
         });
     };
