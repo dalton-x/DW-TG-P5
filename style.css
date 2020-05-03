@@ -178,6 +178,18 @@ a {
     text-decoration: none;
 }
 
+/* Formulaire de validation */
+.form-control{
+    background-color: #e68d0759;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+.control-label{
+    text-decoration: underline;
+}
 /* Boutton validé de la page produit */
 .validation {
     text-decoration: none;

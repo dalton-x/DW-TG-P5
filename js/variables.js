@@ -39,6 +39,7 @@ let contact={}
 let product_id = []
 let resultFinal = {}
 let response
+let responseOrderID
 
 //Choix de la langue du site
 let lang = language
@@ -68,15 +69,6 @@ function $_GET(param) {
 	return vars;
 }
 
-// Mise en place des fonctions de la page
-// function setCookie(nom, valeur, expire, chemin, domaine, securite){
-//     document.cookie = nom + ' = ' + escape(valeur) + '  ' +
-//                     ((expire == undefined) ? '' : ('; expires = ' + expire)) +
-//                     ((chemin == undefined) ? '' : ('; path = ' + chemin)) +
-//                     ((domaine == undefined) ? '' : ('; domain = ' + domaine)) +
-//                     ((securite == true) ? '; secure' : '');
-// }
-
 // function pour effacer l'HTML
 const eraseHtml = container => {
     const element = document.getElementById(container);
@@ -98,18 +90,24 @@ function getQuantity(num){
 }
 
 function getValue() {
-    // Sélectionner l'élément input et récupérer sa valeur
-    firstName = document.getElementById("first_name").value;
-    lastName = document.getElementById("last_name").value;
-    email = document.getElementById("email").value;
-    adress = document.getElementById("adress").value;
-    city = document.getElementById("city").value;
-    // Afficher la valeur
-    return contact = {
-        firstName:firstName,
-        lastName:lastName,
-        email:email,
-        adress:adress,
-        city:city
-    }
-}
+// Sélectionner l'élément input et récupérer sa valeur
+firstName = document.getElementById("first_name").value;
+lastName = document.getElementById("last_name").value;
+email = document.getElementById("email").value;
+adress = document.getElementById("adress").value;
+city = document.getElementById("city").value;
+    if (firstName.length >= 3 && 
+        lastName.length >= 3 && 
+        email.length >= 3 && 
+        adress.length >= 3 && 
+        city.length >= 3){
+        return contact = {
+            firstName:firstName,
+            lastName:lastName,
+            email:email,
+            adress:adress,
+            city:city
+        };
+    };
+    
+};
