@@ -27,5 +27,11 @@ let language ={
         del : "Supprimer l'article",
         modal_Dest_1 :"Vous avez choisit ",
         modal_Dest_2 :" avec la couleur "
+    },
+    result : {
+        currency : " €",
+        totalCommande : "Votre commande d\'un montant total de : ",
+        order : "Votre numero de commande est le : ",
+        return : "Retour a la page d'acceuil"
     }
 }
