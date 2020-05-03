@@ -47,15 +47,15 @@ console.log("email",email.length)
 console.log("city",city.length)
 console.log("adress",adress.length)
     if (firstName.length < 3){
-        alert ("Le prenom est mal remplis")
+        alert ("Le prénom est mal rempli")
     }else if(lastName.length < 3){
-        alert ("Le nom est mal remplis")
+        alert ("Le nom est mal rempli")
     }else if(email.length < 3){
-        alert ("L'email est mal remplis")
+        alert ("L'email est mal rempli")
     }else if(adress.length < 3){
-        alert ("L'adresse est mal remplis")
+        alert ("L'adresse est mal rempli")
     }else if(city.length < 3){
-        alert ("La ville est mal remplis")
+        alert ("La ville est mal rempli")
     }else{
         contact = {
                 firstName:firstName,

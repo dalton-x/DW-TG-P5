@@ -298,7 +298,7 @@ if (window.location.pathname == '/panier.html' ){
 
         let submit_Form = document.getElementById("submitForm");
         submitForm = document.createElement("button"); 
-        submitForm.textContent = "VALIDEE";
+        submitForm.textContent = "VALIDER";
         submitForm.classList.add("btn");
         submitForm.classList.add("btn-warning");
         submitForm.type = "submit";
@@ -306,15 +306,18 @@ if (window.location.pathname == '/panier.html' ){
         function(){
             // Récuperation ds valeur du formulaire de contact
             getValue()
-            console.log(contact.length)
-            //Envoie du panier + formulaire au serveur
-            sendResult.open("POST", urlDB+'order');
-            sendResult.setRequestHeader("Content-Type", "application/json");
-            resultFinal = {                
-                contact: contact,
-                products: product_id,
-            }
-            sendResult.send(JSON.stringify(resultFinal));
+            if (contact !== undefined){
+                //Envoie du panier + formulaire au serveur
+                sendResult.open("POST", urlDB+'order');
+                sendResult.setRequestHeader("Content-Type", "application/json");
+                resultFinal = {                
+                    contact: contact,
+                    products: product_id,
+                }
+                sendResult.send(JSON.stringify(resultFinal));
+            }else{
+                alert("Vous avez mal rempli le formulaire")
+            }            
         };
 
         submit_Form.appendChild(submitForm);
