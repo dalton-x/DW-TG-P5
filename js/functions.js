@@ -21,14 +21,11 @@ function getValue() {
     adress = document.getElementById("adress").value;
     city = document.getElementById("city").value;
 
-    //alert(! firstName.match(/^([a-zA-Zàâäéèêëïîôöùûüç' ]+)$/))
-
     if (! firstName.match(/^([a-zA-Zàâäéèêëïîôöùûüç' ]+)$/) ||
         ! lastName.match(/^([a-zA-Zàâäéèêëïîôöùûüç' ]+)$/) || 
         ! adress.match(/^([0-9]{1,3}(([,. ]?){1}[a-zA-Zàâäéèêëïîôöùûüç' ]+))$/) || 
         ! city.match(/^([a-zA-Zàâäéèêëïîôöùûüç' ]+)$/) ||
         ! email.match(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/)){
-        //alert("vous avez mal rempli le champ prenom")
         return contact = false
     }
 
