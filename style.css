@@ -34,35 +34,60 @@ border: 2px solid red;
     overflow: hidden;
 }
 
+/* Couleur des bouton */
+.panier_button,
+.button_product,
+.validation {
+    background-color: #e68b07;
+}
+
 /* Index */
-.title_name {
+
+/* Police pour le nom des produit en page index */
+h2 {
     font-family: "belligerent";
 }
+
+/* Police pour la description*/
 .desc_index,
-.desc_index_title {
+.desc_index_title,
+.desc_produit,
+.desc_produit_title {
     font-family: "Amazon Ember";
 }
+
+/* Alignement de la description */
 .desc_index_title {
     margin-top: 4%;
 }
-.panier_button {
-    background-color: #e68b07;
-}
+
+/* tuiles de la page index */
 .items_index{
     background-color: whitesmoke;
     box-shadow: 1px 1px 20px grey;
+    padding: 2%;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
 }
+
+/* couleur pour les liens*/
 a {
     color: black;
+    text-align: center;
 }
 a:hover {
     color: black;
     text-decoration: none;
 }
+
 /* Gestion des images sur la page index */
 .image_index {
     width: 60%;
     height: 20vh;
+    margin-left: 20%;
     border-radius: 20px;
     box-shadow: 1px 1px 20px #8F5BFE;
     transition: all 1s ease;
@@ -95,13 +120,26 @@ a:hover {
     -o-border-radius: 20px;
 }
 
+.modal-content.image{
+    background-color: rgba(0,0,0, 0);
+    border: 0px solid rgba(0, 0, 0, 0);
+}
+.modal-content.valid{
+    background: linear-gradient(0.40turn,#d39059, #b08cfd);
+    border: 0px solid rgba(0, 0, 0, 0);
+}
+
 .product_panier {
+    background-color: white;
+    border: 5px solid grey;
     border-radius: 15px;
     -webkit-border-radius: 15px;
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
 }
+
+/* Mise en forme du choix de la couleur et de la quantitée sur la page produit */
 .input_produit,
 .select_produit {
     border-radius: 10px;
@@ -111,17 +149,60 @@ a:hover {
     -o-border-radius: 10px;
 }
 
-/* Réglage de la taille des inputs */
-#selectColor {
-    width: 150px;
+/* Boutton validé de la page produit */
+.validation {
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+    top: 15%;
+    color: black;
 }
-#inputQuantity {
+
+/* Réglage de la taille des inputs page produit */
+#quantity,
+#colors,
+#button_Validate {
     width: 150px;
+    margin: 0%;
 }
+/* Réglage de la taille des inputs page panier */
 #article_panier {
     height: 480px;
 }
-.fa-times {
+#panier_clear{
+    top: 15%;
+}
+/* Bouton validé le panier */
+#buttonValid{
+    margin-left: 40%;
+    margin-right: 40%;
+    color: black;
+    background-color: grey;
+    text-decoration: none;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+/* Bouton vider le panier */
+#buttonClear{
+    text-decoration: none;
+    color: black;
+    background-color: grey;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+/* Fonts awesome */
+.fa-times,
+.fa-trash-alt,
+.fas {
     color: red;
 }
 .svg-inline--fa {
@@ -144,6 +225,7 @@ button {
 body {
     background-color: bisque;
 }
+
 body.panier,
 body.produit {
     overflow: hidden;
@@ -154,12 +236,14 @@ main {
     margin: 0% 1% 0% 1%;
 }
 
-/*  */
+/* Footer */
+.footer{
+    position: fixed;
+}
 footer {
     font-size: 1.3em;
     text-align: center;
     font-weight: bold;
-    position: fixed;
     bottom: 0;
     left: 0;
     right: 0;
@@ -171,11 +255,6 @@ h1 {
     font-size: 5em;
     font-family: belligerent;
     color: #261624;
-}
-
-a {
-    text-align: center;
-    text-decoration: none;
 }
 
 /* Formulaire de validation */
@@ -190,19 +269,172 @@ a {
 .control-label{
     text-decoration: underline;
 }
-/* Boutton validé de la page produit */
-.validation {
-    text-decoration: none;
-    cursor: pointer;
-    border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
-}
 
 main {
     margin-bottom: 10%;
 }
 
+@media screen and (max-width: 319px){
+    .logo{
+        width: 30%;
+    }
+    h1{
+        font-size: 30px;
+    }
+    h2{
+        font-size: 20px;
+        text-align: center;
+    }
+    p,a{
+        text-align: justify;
+        padding: 5%;
+    }
+}
 
+/*****MOBILE*****/ /* portrait */
+@media screen and (min-width: 320px) and (max-width: 567px) {
+    
+    main {
+        overflow: hidden;
+    }
+    .logo{
+        width: 30%;
+    }
+    h1{
+        font-size: 30px;
+    }
+    #teddies{
+        padding: 5%
+    }
+    .items_index{
+        padding: 10%;
+    }
+    body.panier,
+    body.produit {
+        overflow: scroll;
+    }
+    .footer{
+        position: relative;
+    }
+    .title_panier{
+        text-align: center;
+    }
+    .image_product{
+        margin-top: 5%;
+    }
+}
+
+/*****MOBILE*****/ /* paysage */
+@media screen and (min-width: 568px) and (max-width: 767px) {
+
+    main {
+        overflow: hidden;
+    }
+    .logo{
+        width: 30%;
+    }
+    h1{
+        font-size: 30px;
+    }
+    #teddies{
+        padding: 5%
+    }
+    .items_index{
+        padding: 10%;
+    }
+    .image_index {
+        width: 60%;
+        height: 50vh;        
+    }
+    body.panier,
+    body.produit {
+        overflow: scroll;
+    }
+    .footer{
+        position: relative;
+    }
+    .title_panier{
+        text-align: center;
+    }
+    .image_product{
+        margin-top: 5%;
+        width: 30%;
+    }
+}
+/*****TABLETTE*****/ /* portrait */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+    
+    main {
+        overflow: hidden;
+    }
+    .logo{
+        width: 30%;
+    }
+    h1{
+        font-size: 30px;
+    }
+    #teddies{
+        padding: 5%
+    }
+    .items_index{
+        padding: 10%;
+    }
+    .image_index {
+        width: 60%;
+        height: 30vh;
+        margin-left: 20%;
+    }
+    body.panier,
+    body.produit {
+        overflow: scroll;
+    }
+    .footer{
+        position: relative;
+    }
+    .title_panier{
+        text-align: center;
+    }
+    .image_product{
+        margin-top: 5%;
+        width: 100%;
+    }
+
+}
+  /*****TABLETTE*****/ /* paysage */
+@media screen and (min-width: 1024px) and (max-width: 1365px) {
+    
+    main {
+        overflow: hidden;
+    }
+    .logo{
+        width: 25%;
+    }
+    h1{
+        font-size: 55px;
+    }
+    #teddies{
+        padding: 5%
+    }
+    .items_index{
+        padding: 1%;
+    }
+    .image_index {
+        width: 60%;
+        height: 15vh;
+        margin-left: 20%;
+    }
+    body.panier,
+    body.produit {
+        overflow: scroll;
+    }
+    .footer{
+        position: relative;
+    }
+    .title_panier{
+        text-align: center;
+    }
+    .image_product{
+        margin-top: 5%;
+        width: 100%;
+    }
+}

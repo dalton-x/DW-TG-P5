@@ -20,19 +20,19 @@
 <body class="produit">
 
     <header class="row container-fluid">
-        <a class="col-lg-7 text-decoration-none index" href="./index.html">
+        <a class="col-lg-10 col-xs-10 text-decoration-none index" href="./index.html">
             <img class="logo" src="./images/logo.png" title="OriTeddies" alt="Logo de Oriteddies"><br>
             <H1>OriTeddies</H1>
         </a>
-        <div class="col-lg-3">
-            <label id="panier-nombre" for="panier"> Votre Panier</label>
+        <div id="panier_index" class="col-lg-1 col-xs-1 text-center">
+            <label id="panier-nombre" for="panier"> Votre Panier </label>
             <button id="panier" class="panier_button">
-                <a class=" text-decoration-none panier" href="./panier.html"><i class="fas fa-shopping-cart"></i></a>
+                <a class="text-decoration-none panier" href="./panier.html"><i class="fas fa-shopping-cart"></i></a>
             </button>
         </div>
     </header>
 
-    <main class="product">
+    <main id="resToLow" class="product">
         <div class="container-fluid">
             <div class="row">
                 <a class="return_index" href="./index.html"> <p><i class="fas fa-arrow-left"></i> Retour aux produits</p></a>
@@ -42,15 +42,15 @@
                 </div>
             </div>
             <div id="choice" class="row mb-5">
-                <div id="description" class="col-md-4">
+                <div id="description" class="col-lg-4">
                 </div>
-                <div id="image" class="col-md-4">
+                <div id="image" class="col-lg-4">
                 </div>
-                <div id="choiceColors" class="col-md-4">
+                <div id="choiceColors" class="col-lg-4">
                     <!-- Modal Image -->
                     <div class="modal fade" id="ChoiceImg" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
-                            <div class="modal-content">
+                            <div class="modal-content image">
                                 <div id="returnImg" class="modal-body">
                                     <button title="Fermer" type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true"><i class="fas fa-times"></i></span>
@@ -62,7 +62,7 @@
                     <!-- Modal choice -->
                     <div class="modal fade" id="ChoiceDest" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
-                            <div class="modal-content">
+                            <div class="modal-content valid">
                                 <div class="modal-header">
                                     <h5 class="modal-title" id="exampleModalLabel">
                                         Selection
@@ -85,7 +85,7 @@
         </div>
     </main>
 
-    <footer>
+    <footer class="footer">
         <p> © 2020 OriTeddies</p>
     </footer>
 

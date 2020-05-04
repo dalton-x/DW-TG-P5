@@ -29,8 +29,6 @@ if (window.location.pathname == '/panier.html') {
             product_panier.classList.add("row");
             product_panier.classList.add("product_panier");
             product_panier.classList.add("mb-3");
-            product_panier.style.backgroundColor = "white";
-            product_panier.style.border = '5px grey solid';
 
             // On Insere la row dans la page HTML
             articlePanier.appendChild(product_panier);
@@ -226,7 +224,6 @@ if (window.location.pathname == '/panier.html') {
             const trash_i = document.createElement("i");
             trash_i.classList.add("fas");
             trash_i.classList.add("fa-trash-alt");
-            trash_i.style.color = "red";
 
             // Affichage du de la couleur
             display_del.appendChild(trash_i);
@@ -247,18 +244,12 @@ if (window.location.pathname == '/panier.html') {
 
         // Mise en place du bouton pour vider le panier
         let panierClear = document.getElementById("panier_clear");
-        panierClear.style.top = "15%";
-        panierClear.classList.add("validation");
         panierClear.classList.add("text-center");
         panierClear.classList.add("pull-down");
         const buttonClear = document.createElement("button");
         buttonClear.id = "buttonClear";
         buttonClear.title = lang.panier.emptyCart;
         buttonClear.textContent = lang.panier.emptyCart;
-        buttonClear.style.textDecoration = "none";
-        buttonClear.style.borderRadius = "20px";
-        buttonClear.style.color = colorBlack;
-        buttonClear.style.backgroundColor = colorGrey;
         buttonClear.onclick =
             //efface tout les localStorage donc efface le panier 
             function () {
@@ -269,7 +260,6 @@ if (window.location.pathname == '/panier.html') {
         const ibuttonClear = document.createElement("i")
         ibuttonClear.classList.add("fas");
         ibuttonClear.classList.add("fa-trash-alt");
-        ibuttonClear.style.color = "red";
 
         // Affichage du boutton pour vider le panier
         panierClear.appendChild(buttonClear);
@@ -278,13 +268,9 @@ if (window.location.pathname == '/panier.html') {
         let button_valid = document.getElementById("validCommand")
         const buttonValid = document.createElement("button");
         buttonValid.dataset.toggle = "modal";
-        buttonValid.id = "buttonClear";
+        buttonValid.id = "buttonValid";
         buttonValid.title = "Validée la Commande";
         buttonValid.textContent = "Validé le panier";
-        buttonValid.style.textDecoration = "none";
-        buttonValid.style.borderRadius = "20px";
-        buttonValid.style.color = colorBlack;
-        buttonValid.style.backgroundColor = "cyan";
         buttonValid.onclick =
             function () {
                 buttonValid.dataset.target = "#ChoiceDest";
