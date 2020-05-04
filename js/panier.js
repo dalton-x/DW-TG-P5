@@ -7,15 +7,14 @@ if (window.location.pathname == '/panier.html') {
         emptyPanier.innerHTML += lang.panier.inner;
         // si panier avec des objets
     } else {
-        let sendResult = new XMLHttpRequest();
         let keysLocalStorage = Object.keys(localStorage);
         for (let i = 0; i < keysLocalStorage.length; i++) {
-            ID_Color = JSON.parse(keysLocalStorage[i]);
+            let ID_Color = JSON.parse(keysLocalStorage[i]);
             for (let i = 0; i < ID_Color.length; i++) {
                 ID = ID_Color[i].IDproduct;
                 color = ID_Color[i].indexColor;
             }
-            values = JSON.parse(localStorage.getItem(keysLocalStorage[i]));
+            let values = JSON.parse(localStorage.getItem(keysLocalStorage[i]));
             for (let i = 0; i < values.length; i++) {
                 quantity = values[i].indexQuantity;
                 image = values[i].image;
@@ -200,7 +199,7 @@ if (window.location.pathname == '/panier.html') {
             const display_SubTotal = document.createElement("p");
             subTotalValue = price * quantity;
             totalArrayCommand.push(subTotalValue);
-            numberOfItemsInPanier = totalArrayCommand.length;
+            //numberOfItemsInPanier = totalArrayCommand.length;
             display_SubTotal.textContent = lang.panier.subTotal + subTotalValue + " €";
 
             // Affichage du de le sous total
@@ -214,12 +213,11 @@ if (window.location.pathname == '/panier.html') {
             // envoie de la colonne
             subTotal_del.appendChild(del_product);
 
+
             const display_del = document.createElement("button");
-            display_del.value = nameCookies;
             display_del.title = lang.panier.del;
             display_del.onclick = function () {
                 localStorage.removeItem(keysLocalStorage[i]);
-                //document.cookie = display_del.value + lang.panier.expiration;
                 location.reload(true);
             }
             // Affichage du de la couleur
@@ -228,7 +226,6 @@ if (window.location.pathname == '/panier.html') {
             const trash_i = document.createElement("i");
             trash_i.classList.add("fas");
             trash_i.classList.add("fa-trash-alt");
-            trash_i.value = nameCookies;
             trash_i.style.color = "red";
 
             // Affichage du de la couleur
@@ -279,7 +276,7 @@ if (window.location.pathname == '/panier.html') {
         buttonClear.appendChild(ibuttonClear);
 
         let button_valid = document.getElementById("validCommand")
-        buttonValid = document.createElement("button");
+        const buttonValid = document.createElement("button");
         buttonValid.dataset.toggle = "modal";
         buttonValid.id = "buttonClear";
         buttonValid.title = "Validée la Commande";
@@ -311,7 +308,6 @@ if (window.location.pathname == '/panier.html') {
                         contact: contact,
                         products: product_id,
                     };
-
                     // on envoie au serveur l'objet de la commande via la méthode POST
                     fetch(urlDB + "order", {
                             method: "POST",
@@ -337,22 +333,5 @@ if (window.location.pathname == '/panier.html') {
                 };
             };
         submit_Form.appendChild(submitForm);
-
-        //Récupération de la reponse serveur
-        sendResult.addEventListener('readystatechange', function () {
-            if (sendResult.readyState == 4) {
-                response = sendResult;
-                let order = JSON.parse(response.responseText)
-                responseOrderID = order.orderId
-
-                //Supression du panier
-                localStorage.clear();
-                //Création d'un nouvel localStorage pour affichage sur la page result
-                localStorage.setItem(responseOrderID, totalCommand);
-
-                //Affichage de la reponse server
-                window.location.href = './result.html';
-            }
-        });
     };
 };

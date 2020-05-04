@@ -5,7 +5,7 @@ fetch(urlDB)
         for (let i = 0; i < teddies.length; i++) {
 
             // Ajout du parent pour le HTML
-            let parent = document.getElementById("teddies");
+            let teddiesDiv = document.getElementById("teddies");
 
             // Ajout d une div avec la class bootstrap
             const teddieDiv = document.createElement("div");
@@ -18,10 +18,10 @@ fetch(urlDB)
             teddieDiv.id = "teddies" + i;
 
             // insertion de la DIV dans la page HTML
-            parent.appendChild(teddieDiv);
+            teddiesDiv.appendChild(teddieDiv);
 
             // Ajout du parent pour le HTML
-            let parent2 = document.getElementById("teddies" + i);
+            let teddiesI = document.getElementById("teddies" + i);
 
             // Ajout de texte pour le nom de l' objet
             const teddieName = document.createElement("h2");
@@ -66,13 +66,13 @@ fetch(urlDB)
             teddielink.style.color = colorBlack;
 
             // ici ordre d'apparition sur la page web
-            parent2.appendChild(teddieName)
-            parent2.appendChild(aTeddiesImage)
+            teddiesI.appendChild(teddieName)
+            teddiesI.appendChild(aTeddiesImage)
             aTeddiesImage.appendChild(teddieImage)
-            parent2.appendChild(teddietitleDesc)
-            parent2.appendChild(teddieDesc)
-            parent2.appendChild(teddiePrice)
-            parent2.appendChild(teddiebutton)
+            teddiesI.appendChild(teddietitleDesc)
+            teddiesI.appendChild(teddieDesc)
+            teddiesI.appendChild(teddiePrice)
+            teddiesI.appendChild(teddiebutton)
             teddiebutton.appendChild(teddielink)
         };
     })

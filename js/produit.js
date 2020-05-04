@@ -1,13 +1,12 @@
 // Recuperation des valeur dans l' URL
-
 const params = new URLSearchParams(window.location.search)
 for (param of params) {
+    //mise en variable de id recuperer dans l'URL
     IDproduct = param[1]
     fetch(urlDB + IDproduct)
         .then(response => response.json())
         .then(teddies => {
             // declaration des variables de la page html
-            console.log(teddies)
             let name = teddies.name;
             let description = teddies.description;
             let image = teddies.imageUrl;
@@ -155,6 +154,7 @@ for (param of params) {
             const imgProduct = document.createElement("img");
             imgProduct.src = image;
             imgProduct.alt = description;
+            imgProduct.title = lang.produit.openBigSize;
             imgProduct.classList.add("image_product");
             imgProduct.dataset.toggle = "modal";
             imgProduct.dataset.target = "#ChoiceImg";
