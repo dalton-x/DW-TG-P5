@@ -32,10 +32,6 @@ if (screen.width >= widthRes) {
                 product_panier.classList.add("row");
                 product_panier.classList.add("product_panier");
                 product_panier.classList.add("mb-3");
-                // console.log(localStorage.length)
-                // if (localStorage.length > 1){
-                //     articlePanier.style.border = "1px solid black";
-                // }
 
                 // On Insere la row dans la page HTML
                 articlePanier.appendChild(product_panier);
