@@ -1,4 +1,5 @@
 // Ajout des varible pour les scripts JS
+let IDproduct
 let nameCookies
 let subTotalValue
 let ID
@@ -13,6 +14,7 @@ let numberOfItemsInPanier
 let ID_Color
 let totalCommand
 let values
+let param
 
 let buttonValid
 let result
@@ -37,7 +39,7 @@ let contact = {}
 let product_id = []
 let resultFinal = {}
 let response
-let responseOrderID
+let responseOrderID                                             
 
-// déclaration de l'adress de la BDD
-const urlDB = 'http://localhost:3000/api/teddies/'
+
+const urlDB = 'http://localhost:3000/api/teddies/'              // déclaration de l'adress de la BDD
