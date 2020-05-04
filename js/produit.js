@@ -174,7 +174,6 @@ if (screen.width >= widthRes) {
             .catch(error => console.error(error));
     };
 } else {
-    alert(lang.index.alert)
     eraseHtml("resToLow")
     eraseHtml("panier_index")
     var emptyPanier = document.getElementById("resToLow");
