@@ -44,7 +44,7 @@ border: 2px solid red;
 /* Index */
 
 /* Police pour le nom des produit en page index */
-h2 {
+h2,h3 {
     font-family: "belligerent";
 }
 
@@ -54,6 +54,10 @@ h2 {
 .desc_produit,
 .desc_produit_title {
     font-family: "Amazon Ember";
+}
+
+.desc_produit_title{
+    text-decoration: double underline;
 }
 
 /* Alignement de la description */
@@ -104,8 +108,13 @@ a:hover {
     -o-transform: scale(0.9);
 }
 
+.title_product{
+    padding-left: 1%;
+}
+
 /* Gestion des images sur la page produit */
 .image_product,
+.image_panier,
 .image_product_modal {
     width: 100%;
     box-shadow: 1px 1px 20px #8F5BFE;
@@ -120,6 +129,10 @@ a:hover {
     -o-border-radius: 20px;
 }
 
+.image_panier{
+    margin-top: 15%;
+    margin-bottom: 15%;
+}
 .modal-content.image{
     background-color: rgba(0,0,0, 0);
     border: 0px solid rgba(0, 0, 0, 0);
@@ -127,6 +140,18 @@ a:hover {
 .modal-content.valid{
     background: linear-gradient(0.40turn,#d39059, #b08cfd);
     border: 0px solid rgba(0, 0, 0, 0);
+}
+
+.btn-warning,
+.btn-success{
+    background: linear-gradient(0.60turn,#d3905981, #b08cfd81);
+    border: 2px solid grey;
+}
+.btn-warning:hover{
+    box-shadow: 1px 1px 20px #eeff00;
+}
+.btn-success:hover{
+    box-shadow: 1px 1px 20px #00ff15;
 }
 
 .product_panier {
@@ -170,7 +195,17 @@ a:hover {
 /* Réglage de la taille des inputs page panier */
 #article_panier {
     height: 480px;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
 }
+/* cache le scroll barre sur chrome et safari */
+#article_panier::-webkit-scrollbar {
+    display: none;
+}
+
 #panier_clear{
     top: 15%;
 }
@@ -358,7 +393,7 @@ main {
     }
     .image_product{
         margin-top: 5%;
-        width: 30%;
+        width: 60%;
     }
 }
 /*****TABLETTE*****/ /* portrait */
@@ -396,7 +431,7 @@ main {
     }
     .image_product{
         margin-top: 5%;
-        width: 100%;
+        width: 60%;
     }
 
 }

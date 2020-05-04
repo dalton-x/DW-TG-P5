@@ -17,6 +17,7 @@ if (screen.width >= widthRes) {
                 //Mise en place du titre en H2
                 let titleProduct = document.getElementById("title");
                 const h2 = document.createElement("h2");
+                h2.classList.add("title_product")
                 h2.textContent = name;
 
                 // Affichage du titre
