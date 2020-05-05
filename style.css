@@ -208,6 +208,7 @@ a:hover {
     display: none;
 }
 
+
 #panier_clear{
     top: 15%;
 }
@@ -268,9 +269,9 @@ body.produit {
     overflow: hidden;
 }
 /*  */
-[class*="col-lg"],
+[class*="col-lg-3"],
 main {
-    margin: 0% 1% 0% 1%;
+    margin: 0% 4% 0% 4%;
 }
 
 /* Footer */
@@ -305,12 +306,9 @@ h1 {
 }
 .control-label{
     text-decoration: underline;
-}
+} 
 
-main {
-    margin-bottom: 10%;
-}
-
+/* Trop petite résolution */
 @media screen and (max-width: 319px){
     .logo{
         width: 30%;
@@ -327,7 +325,6 @@ main {
         padding: 5%;
     }
 }
-
 /*****MOBILE*****/ /* portrait */
 @media screen and (min-width: 320px) and (max-width: 567px) {
     
@@ -360,7 +357,6 @@ main {
         margin-top: 5%;
     }
 }
-
 /*****MOBILE*****/ /* paysage */
 @media screen and (min-width: 568px) and (max-width: 767px) {
 
