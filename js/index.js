@@ -79,5 +79,5 @@ if (screen.width >= widthRes) {
     eraseHtml("resToLow")
     eraseHtml("panier_index")
     var emptyPanier = document.getElementById("resToLow");
-        emptyPanier.innerHTML += lang.index.inner;
+    emptyPanier.innerHTML += lang.index.inner;
 }

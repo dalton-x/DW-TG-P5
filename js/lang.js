@@ -34,4 +34,4 @@ let lang = {
         order: "Votre numero de commande est le : ",
         return: "Retour à la page d'acceuil"
     }
-}
+};

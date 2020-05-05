@@ -14,7 +14,7 @@ let indexQuantity                                               // Déclaration 
 let indexColor                                                  // Déclaration pour affichage dans le modal de confirmation du produit
 
 //Variable des couleurs
-let colorBlack = "black";  
+let colorBlack = "black"  
 let colorOrange = "#E68B07"
 let colorGrey = "grey"     
 
