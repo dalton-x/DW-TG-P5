@@ -30,7 +30,7 @@ function getValue() {
     }
 
     // verification que tout les champs soit bien remplis avec un minimum de caracteres
-    if (firstName.length < 3 || lastName.length < 3 || email.length < 3 || adress.length < 3 || city.length < 3) {
+    if (firstName.length < 3 || lastName.length < 3 || email.length < 3 || adress.length < 3  || city.length < 1) {
         return contact = false
     } else {
         return contact = {
