@@ -71,10 +71,6 @@ h2,h3 {
     box-shadow: 1px 1px 20px grey;
     padding: 2%;
     border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
 }
 
 /* couleur pour les liens*/
@@ -95,17 +91,9 @@ a:hover {
     border-radius: 20px;
     box-shadow: 1px 1px 20px #8F5BFE;
     transition: all 1s ease;
-    -webkit-transition: all 1s ease;
-    -moz-transition: all 1s ease;
-    -ms-transition: all 1s ease;
-    -o-transition: all 1s ease;
 }
 .image_index:hover {
     transform: scale(0.9);
-    -webkit-transform: scale(0.9);
-    -moz-transform: scale(0.9);
-    -ms-transform: scale(0.9);
-    -o-transform: scale(0.9);
 }
 
 .title_product{
@@ -123,10 +111,6 @@ a:hover {
     border-radius: 20px;
     margin: auto;
     overflow: hidden;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
 }
 
 .image_panier{
@@ -158,29 +142,17 @@ a:hover {
     background-color: white;
     border: 5px solid grey;
     border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
 }
 
 /* Mise en forme du choix de la couleur et de la quantitée sur la page produit */
 .input_produit,
 .select_produit {
     border-radius: 10px;
-    -webkit-border-radius: 10px;
-    -moz-border-radius: 10px;
-    -ms-border-radius: 10px;
-    -o-border-radius: 10px;
 }
 
 /* Boutton validé de la page produit */
 .validation {
     border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
     top: 15%;
     color: black;
 }
@@ -196,12 +168,8 @@ a:hover {
 #article_panier {
     height: 480px;
     border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
     /* Cache le scroll bar dans firefox */
-    scrollbar-width: none;
+    scrollbar-width: none;  /* Validation W3C erreur car toujours en DEV */
 }
 /* cache le scroll barre sur chrome et safari */
 #article_panier::-webkit-scrollbar {
@@ -220,10 +188,6 @@ a:hover {
     background-color: grey;
     text-decoration: none;
     border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
 }
 /* Bouton vider le panier */
 #buttonClear{
@@ -231,10 +195,6 @@ a:hover {
     color: black;
     background-color: grey;
     border-radius: 20px;
-    -webkit-border-radius: 20px;
-    -moz-border-radius: 20px;
-    -ms-border-radius: 20px;
-    -o-border-radius: 20px;
 }
 
 /* Fonts awesome */
@@ -253,10 +213,6 @@ a:hover {
 /* button du panier */
 button {
     border-radius: 10%;
-    -webkit-border-radius: 10%;
-    -moz-border-radius: 10%;
-    -ms-border-radius: 10%;
-    -o-border-radius: 10%;
 }
 
 /* Ajout d'un fond sur les pages web */
@@ -299,10 +255,6 @@ h1 {
 .form-control{
     background-color: #e68d0759;
     border-radius: 15px;
-    -webkit-border-radius: 15px;
-    -moz-border-radius: 15px;
-    -ms-border-radius: 15px;
-    -o-border-radius: 15px;
 }
 .control-label{
     text-decoration: underline;

@@ -5,7 +5,7 @@ if (screen.width >= widthRes) {
         // Si panier vide on efface la page html et on remplace par le inner
         if (localStorage.length === 0) {
             eraseHtml('inner')
-            var emptyPanier = document.getElementById("inner");
+            let emptyPanier = document.getElementById("inner");
             emptyPanier.innerHTML += lang.panier.inner;
             // si panier avec des objets
         } else {
@@ -273,7 +273,7 @@ if (screen.width >= widthRes) {
             buttonValid.dataset.toggle = "modal";
             buttonValid.id = "buttonValid";
             buttonValid.title = "Validée la Commande";
-            buttonValid.textContent = "Validé le panier";
+            buttonValid.textContent = lang.panier.valid;
             buttonValid.onclick =
                 function () {
                     buttonValid.dataset.target = "#ChoiceDest";
@@ -326,6 +326,6 @@ if (screen.width >= widthRes) {
     };
 } else {
     eraseHtml("resToLow")
-    var emptyPanier = document.getElementById("resToLow");
+    let emptyPanier = document.getElementById("resToLow");
     emptyPanier.innerHTML += lang.index.inner;
 }

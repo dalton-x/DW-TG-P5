@@ -25,6 +25,7 @@ let lang = {
         subTotal: "Sous-Total : ",
         return: "Retour aux produits",
         del: "Supprimer l'article",
+        valid: "Valider le panier",
         modal_Dest_1: "Vous avez choisit ",
         modal_Dest_2: " avec la couleur "
     },
