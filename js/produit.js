@@ -23,7 +23,7 @@ if (screen.width >= widthRes) {
                 // Affichage du titre
                 titleProduct.appendChild(h2);
 
-                // Mise en place de la description de l article
+                // Mise en place de la description de l'article
                 let titleDescProduct = document.getElementById("description");
                 const ptitle = document.createElement("p");
                 ptitle.classList.add("desc_produit_title")
@@ -32,7 +32,7 @@ if (screen.width >= widthRes) {
                 // Affichage de la description
                 titleDescProduct.appendChild(ptitle);
 
-                // Mise en place de la description de l article
+                // Mise en place de la description de l'article
                 let descProduct = document.getElementById("description");
                 const p = document.createElement("p");
                 p.classList.add("desc_produit")
@@ -151,7 +151,7 @@ if (screen.width >= widthRes) {
 
                 let imageProduct = document.getElementById("image");
 
-                // ajout pour la balise image
+                // Ajout pour la balise image
                 const imgProduct = document.createElement("img");
                 imgProduct.src = image;
                 imgProduct.alt = description;
