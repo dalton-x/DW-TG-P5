@@ -33,4 +33,4 @@ let responseOrderID
 
 let widthRes = 319                                              // pour iphone 5/SE minimum
 
-const urlDB = 'http://localhost:3000/api/teddies/'              // Déclaration de l'adresse de la BDD
+const urlDB = 'https://projet-5.dev-web.fr/api/teddies/'   // Déclaration de l'adresse de la BDD
